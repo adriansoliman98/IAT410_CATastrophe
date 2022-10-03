@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 
 public class PlayerControllerNew : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
     public Rigidbody2D rb;
     public Weapon weapon;
+    public Animator animator;
+    
 
     Vector2 moveDirection;
     Vector2 mousePosition;
@@ -19,6 +21,7 @@ public class PlayerControllerNew : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+      // animator.SetFloat("Speed", moveX);
 
         if(Input.GetMouseButton(0))
         {
