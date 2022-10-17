@@ -6,17 +6,21 @@ TagManager:
   tags:
   - SpawnPoint
   - Rooms
+  - Enemy
+  - room
+  - Weapon
+  - Catgun
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Weapon
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Bullet
+  - Catgun
+  - Enemy
   - 
   - 
   - 
