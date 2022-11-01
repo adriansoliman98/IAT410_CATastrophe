@@ -10,6 +10,8 @@ TagManager:
   - room
   - Weapon
   - Catgun
+  - Arrow
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Bullet
   - Catgun
   - Enemy
-  - 
+  - Item
   - 
   - 
   - 

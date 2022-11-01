@@ -78,13 +78,21 @@ public class EnemyAI : MonoBehaviour
     {
         health -= damageAmount;
 
-
+        GetComponent<LootBag>().InstantiateLoot(transform.position);
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            GetComponent<LootBag>().InstantiateLoot(transform.position);
+            Die();
         }
 
+    }
+
+
+    void Die()
+    {
+        GetComponent<LootBag>().InstantiateLoot(transform.position);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

@@ -14,6 +14,17 @@ public class Bullet : MonoBehaviour
         }
     }
 
+
+        if (gameObject.tag == "Arrow")
+        {
+
+            if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+            {
+                enemyComponent.TakeDamage((float)6);
+            }
+        }
+
+
         Destroy(gameObject);
     }
 }
