@@ -7,9 +7,11 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float moveSpeed;
+    public Animator animator;
     public Rigidbody2D rb;
     public Weapon weapon;
     private Vector2 moveDirection;
+
     
     Vector2 mousePosition;
 
@@ -20,9 +22,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ProcessInputs();
-       
+        DoAnimations();
+
+
+
     }
 
+    // called 50/s by default
     private void FixedUpdate()
     {
         Move();
@@ -35,6 +41,15 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
 
+    }
+
+    void DoAnimations()
+    {
+        animator.SetFloat("Horizontal", moveDirection.x);
+        animator.SetFloat("Vertical", moveDirection.y);
+        animator.SetFloat("Speed", moveDirection.sqrMagnitude);
+
+        //animator.SetFloat("Speed", moveSpeed);
     }
 
     void Move()
