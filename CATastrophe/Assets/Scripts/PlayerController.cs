@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -18,19 +19,25 @@ public class PlayerController : MonoBehaviour
     public GameObject currentGun;
     public string A = "Arrow";
 
+
+
     BulletControl bulletControl;
     WeaponSwitch weaponSwitch;
     EnemyAI enemyAI;
     public GameObject player;
     public GameObject player2;
     public GameObject bulletPrefab;
+    private Vector2 moveDirection;
+
+    public float moveSpeed;
+
 
     public bool catgun = true;
     public bool bow = false;
 
     GameObject Bullet;
 
-    new Rigidbody2D rigidbody;
+    new Rigidbody2D rb;
     // public Text collectedText;
     public static int collectedAmount = 0;
 
@@ -46,7 +53,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
 
         totalWeapons = weaponHolder.transform.childCount;
         guns = new GameObject[totalWeapons];
@@ -76,12 +83,13 @@ public class PlayerController : MonoBehaviour
         SetBulletPreFab(bulletPrefab);
         //   fireDelay = GameController.FireRate;
         //   speed = GameController.MoveSpeed;
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        ProcessInputs();
+
 
         float shootHor = Input.GetAxis("ShootHorizontal");
         float shootVert = Input.GetAxis("ShootVertical");
         //   print(bulletSpeed);
+
 
         if ((shootHor != 0 || shootVert != 0) && Time.time > lastFire + fireDelay)
         {
@@ -109,21 +117,40 @@ public class PlayerController : MonoBehaviour
 
             }
             lastFire = Time.time;
-           
         }
 
 
-        rigidbody.velocity = new Vector3(horizontal * 10, vertical * 10, 0);
+       
 
-         
+
 
 
 
     }
 
+    void ProcessInputs()
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        moveDirection = new Vector2(moveX, moveY).normalized;
+
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
     public void SetBulletPreFab(GameObject newBullet)
     {
         bulletPrefab = newBullet;
+
+    }
+
+    void Move()
+    {
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
 
     }
 

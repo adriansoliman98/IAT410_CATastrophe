@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float health, maxHealth;
+    public float health, maxHealth;
 
     public float moveSpeed;
     public float checkRadius;
@@ -79,10 +79,10 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            
-                 // GetComponent<ItemSpawner>().Spawn();
+            Destroy(this.gameObject);
+            // GetComponent<ItemSpawner>().Spawn();
             GetComponent<LootBag>().InstantiateLoot(transform.position);
-            Destroy(gameObject);
+           
         
         }
 

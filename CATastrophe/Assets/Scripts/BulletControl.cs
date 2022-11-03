@@ -31,26 +31,26 @@ public class BulletControl : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (gameObject.tag == "Catgun")
-        {
+       
 
             if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
             {
                 enemyComponent.TakeDamage(bulletDamage);
-              
-            }
+            Destroy(gameObject);
+
+        }
 
             if (collision.gameObject.TryGetComponent<Furniture>(out Furniture furnitureComponent))
             {
                 furnitureComponent.TakeDamage(bulletDamage);
-            }
-
-
-
+            Destroy(gameObject);
         }
-    
+
+
+
+      
         Destroy(gameObject);
     }
 
