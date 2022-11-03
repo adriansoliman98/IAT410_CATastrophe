@@ -6,11 +6,16 @@ using UnityEngine.UIElements;
 public class LootBag : MonoBehaviour
 {
 
-
+     public Sprite lootSprite;
+    public string lootName;
+    public int dropChance;
     public GameObject droppedItemPrefab;
     public List<Loot> lootList = new List<Loot>();
 
-
+    private void Start()
+    {
+    //    lootList.Add(new Loot("Bow", 80));
+    }
     Loot GetDroppedItem()
 
     {
@@ -48,19 +53,27 @@ public class LootBag : MonoBehaviour
             Vector2 dropDirecton = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             lootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirecton * dropForce, ForceMode2D.Impulse);
         }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
         //    if (gameObject.tag == "Player")
-        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+    
+        if (collision.gameObject.name == "Arrow")
         {
+          
             Destroy(this.gameObject);
+
+            Destroy(gameObject);
+            GameObject.Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Arrow"))
         {
+           
             Destroy(this.gameObject);
 
             Destroy(gameObject);
@@ -68,14 +81,6 @@ public class LootBag : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
-    }
-
-    //  Destroy(gameObject);
-    //   }
 
 
 

@@ -6,12 +6,13 @@ using UnityEngine;
 public class WeaponSwitch : MonoBehaviour
 {
     [SteralizedField] public GameObject cashgun;
-    [SteralizedField] public GameObject bow;
+    [SteralizedField] public GameObject arrow;
+    [SteralizedField] public GameObject melee;
     [SteralizedField] private float currentGun;
 
     public bool WeaponCash = true;
-    public bool WeaponBow = false;
-
+    public bool WeaponArrow = false;
+    public bool WeaponMelee = false;
 
     PlayerController playerController;
 
@@ -60,10 +61,11 @@ public class WeaponSwitch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             WeaponCash = true;
-            WeaponBow = false;
+            WeaponArrow = false;
+            WeaponMelee = false;
             currentGun = 1;
             SetWeapon(1);
-            print(WeaponCash);
+            
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -72,12 +74,29 @@ public class WeaponSwitch : MonoBehaviour
          //   if (bowInventory == true)
         //    {
                 WeaponCash = false;
-                WeaponBow = true;
+            WeaponArrow = false;
+              WeaponMelee = true;
                 currentGun = 2;
-                print(WeaponCash);
+            print(WeaponMelee);
                 SetWeapon(2);
          //   }
            
+
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+
+            //   if (bowInventory == true)
+            //    {
+            WeaponCash = false;
+            WeaponMelee = false;
+            WeaponArrow = true;
+            currentGun = 3;
+         
+            SetWeapon(3);
+            //   }
+
 
         }
 
@@ -104,8 +123,13 @@ public class WeaponSwitch : MonoBehaviour
              
                 break;
             case 2:
-                playerController.SetBulletPreFab(bow);
+                playerController.SetBulletPreFab(melee);
             
+                break;
+
+            case 3:
+                playerController.SetBulletPreFab(arrow);
+
                 break;
 
         }

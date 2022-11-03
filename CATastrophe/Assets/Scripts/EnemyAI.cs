@@ -74,9 +74,16 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    /*public void PlayerHit()
+    {
+        rb2.MovePosition((Vector2)transform.position *-2  - (movement * moveSpeed1 * 2));
+
+
+    }
+*/
     public void TakeDamage(float damageAmount)
     {
-        health -= damageAmount;
+      /*  health -= damageAmount;
 
         GetComponent<LootBag>().InstantiateLoot(transform.position);
 
@@ -85,7 +92,7 @@ public class EnemyAI : MonoBehaviour
             GetComponent<LootBag>().InstantiateLoot(transform.position);
             Die();
         }
-
+      */
     }
 
 

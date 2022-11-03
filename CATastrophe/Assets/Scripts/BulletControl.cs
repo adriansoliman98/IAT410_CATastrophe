@@ -5,11 +5,12 @@ using UnityEngine;
 public class BulletControl : MonoBehaviour
 {
     [SteralizedField] float speed;
-    [SteralizedField] float damage;
+    //[SteralizedField] float damage;
     public float bulletSpeed;
     private float lastFire;
     public float fireDelay;
     public float lifeTime ;
+    public float bulletDamage;
 
 
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class BulletControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     IEnumerator DeathDelay()
@@ -37,21 +38,19 @@ public class BulletControl : MonoBehaviour
 
             if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
             {
-                enemyComponent.TakeDamage((float)1);
+                enemyComponent.TakeDamage(bulletDamage);
+              
             }
 
-
-          
-        }
-
-        if (gameObject.tag == "Arrow")
-        {
-
-            if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+            if (collision.gameObject.TryGetComponent<Furniture>(out Furniture furnitureComponent))
             {
-                enemyComponent.TakeDamage((float)6);
+                furnitureComponent.TakeDamage(bulletDamage);
             }
+
+
+
         }
+    
         Destroy(gameObject);
     }
 

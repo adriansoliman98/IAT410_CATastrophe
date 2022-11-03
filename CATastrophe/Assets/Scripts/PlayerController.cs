@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,21 +10,28 @@ public class PlayerController : MonoBehaviour
     int totalWeapons = 1;
     public int currentWeaponIndex;
 
+    public float playerHealth = 3;
+   public float playerMaxHealth = 3f;
+
     public GameObject[] guns;
     public GameObject weaponHolder;
     public GameObject currentGun;
-    public string A = "Arrow Variant";
+    public string A = "Arrow";
 
     BulletControl bulletControl;
     WeaponSwitch weaponSwitch;
-   public GameObject player;
+    EnemyAI enemyAI;
+    public GameObject player;
     public GameObject player2;
     public GameObject bulletPrefab;
 
+    public bool catgun = true;
+    public bool bow = false;
+
     GameObject Bullet;
- 
+
     new Rigidbody2D rigidbody;
-   // public Text collectedText;
+    // public Text collectedText;
     public static int collectedAmount = 0;
 
     //  public GameObject bulletPrefab;
@@ -32,11 +40,12 @@ public class PlayerController : MonoBehaviour
     public float bulletSpeed2;
     public float lastFire;
     private float fireDelay;
+    public int Respawn;
 
     // Start is called before the first frame update
     void Start()
     {
-    
+
         rigidbody = GetComponent<Rigidbody2D>();
 
         totalWeapons = weaponHolder.transform.childCount;
@@ -49,9 +58,11 @@ public class PlayerController : MonoBehaviour
 
         }
 
-       bulletControl = player.GetComponent<BulletControl>();
+        bulletControl = player.GetComponent<BulletControl>();
 
-      weaponSwitch = player2.GetComponent<WeaponSwitch>();
+        weaponSwitch = player2.GetComponent<WeaponSwitch>();
+
+        enemyAI = player2.GetComponent<EnemyAI>();  
 
     }
 
@@ -70,8 +81,8 @@ public class PlayerController : MonoBehaviour
 
         float shootHor = Input.GetAxis("ShootHorizontal");
         float shootVert = Input.GetAxis("ShootVertical");
-     //   print(bulletSpeed);
-       
+        //   print(bulletSpeed);
+
         if ((shootHor != 0 || shootVert != 0) && Time.time > lastFire + fireDelay)
         {
 
@@ -79,55 +90,32 @@ public class PlayerController : MonoBehaviour
             {
                 fireDelay = 0.1f;
                 Shoot(shootHor, shootVert);
-               
+
             }
 
             else
-            if (weaponSwitch.WeaponBow == true)
+            if (weaponSwitch.WeaponMelee == true)
+            {
+                fireDelay = 0.8f;
+                Shoot2(shootHor, shootVert);
+
+            }
+
+            else
+            if (weaponSwitch.WeaponArrow == true)
             {
                 fireDelay = 0.5f;
-                Shoot2(shootHor, shootVert);
-               
+                Shoot3(shootHor, shootVert);
+
             }
             lastFire = Time.time;
-         //   print(bulletPrefab);
-       //     print("1+1");
-   // print(bulletPrefab);
+           
         }
 
-       
-            rigidbody.velocity = new Vector3(horizontal * 5, vertical * 5, 0);
-     
-        //  collectedText.text = "Items Collected: " + collectedAmount;
 
-    /*    if (Input.GetKeyDown(KeyCode.J))
-        {
+        rigidbody.velocity = new Vector3(horizontal * 10, vertical * 10, 0);
 
-            if (currentWeaponIndex < totalWeapons - 1)
-            {
-                print("bye");
-                guns[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex += 1;
-                guns[currentWeaponIndex].SetActive(true);
-                currentGun = guns[currentWeaponIndex];
-            }
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-
-            if (currentWeaponIndex > 0)
-            {
-                print("hello");
-                guns[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex -= 1;
-                guns[currentWeaponIndex].SetActive(true);
-                currentGun = guns[currentWeaponIndex];
-            }
-
-        }
-    */
+         
 
 
 
@@ -136,7 +124,7 @@ public class PlayerController : MonoBehaviour
     public void SetBulletPreFab(GameObject newBullet)
     {
         bulletPrefab = newBullet;
-       
+
     }
 
     public void GainWeapon()
@@ -144,7 +132,9 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Shoot2(float x, float y)
+   
+
+            public void Shoot2(float x, float y)
     {
 
 
@@ -163,72 +153,69 @@ public class PlayerController : MonoBehaviour
     );
     }
 
-        public void Shoot(float x, float y)
+    public void Shoot(float x, float y)
     {
-      
-        
-
-       
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-
-            bulletControl = player.GetComponent<BulletControl>();
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(
 
 
 
-            (x < 0) ? Mathf.Floor(x) * bulletSpeed : Mathf.Ceil(x) * bulletSpeed,
-            (y < 0) ? Mathf.Floor(y) * bulletSpeed : Mathf.Ceil(y) * bulletSpeed,
-            0
-        );
-        
-      
 
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
 
-        /*
-
-        if (currentGun = guns[1])
-        {
-
-            GameObject bullet = Instantiate(currentGun, transform.position, transform.rotation) as GameObject;
+        bulletControl = player.GetComponent<BulletControl>();
+        bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(
 
 
 
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(
+        (x < 0) ? Mathf.Floor(x) * bulletSpeed : Mathf.Ceil(x) * bulletSpeed,
+        (y < 0) ? Mathf.Floor(y) * bulletSpeed : Mathf.Ceil(y) * bulletSpeed,
+        0
+    );
 
 
 
-                (x < 0) ? Mathf.Floor(x) * 1 : Mathf.Ceil(x) * 1,
-                (y < 0) ? Mathf.Floor(y) * 5 : Mathf.Ceil(y) * 1,
-                0
-            );
-
-        }
-
-        else if (currentGun = guns[0])
-        {
-
-            GameObject bullet = Instantiate(currentGun, transform.position, transform.rotation) as GameObject;
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(
-                (x < 0) ? Mathf.Floor(x) * 1 : Mathf.Ceil(x) * 1,
-                (y < 0) ? Mathf.Floor(y) * 1 : Mathf.Ceil(y) * 1,
-                0
-            );
-
-        }
-
-        else if (currentGun = guns[2])
-        {
-            GameObject bullet = Instantiate(currentGun, transform.position, transform.rotation) as GameObject;
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(
-                (x < 0) ? Mathf.Floor(x) * 1 : Mathf.Ceil(x) * 1,
-                (y < 0) ? Mathf.Floor(y) * 1 : Mathf.Ceil(y) * 1,
-                0
-            );
-
-        }
-    }
-        */
     }
 
+    public void Shoot3(float x, float y)
+    {
 
+
+
+
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+
+        bulletControl = player.GetComponent<BulletControl>();
+        bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(
+
+
+
+        (x < 0) ? Mathf.Floor(x) * bulletSpeed : Mathf.Ceil(x) * bulletSpeed,
+        (y < 0) ? Mathf.Floor(y) * bulletSpeed : Mathf.Ceil(y) * bulletSpeed,
+        0
+    );
+    }
+      
+
+        private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+              SceneManager.LoadScene(Respawn);
+
+            //Remove if we want player health
+            /*  Destroy(gameObject);
+
+            playerHealth--;
+            print(playerHealth);
+            enemyAI.PlayerHit();
+            if (playerHealth < 1)
+            {
+                Destroy(gameObject);
+            }
+            */
+            //    }
+        }
+}
 }

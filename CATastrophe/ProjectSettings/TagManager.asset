@@ -12,6 +12,7 @@ TagManager:
   - Catgun
   - Arrow
   - Item
+  - Melee
   layers:
   - Default
   - TransparentFX

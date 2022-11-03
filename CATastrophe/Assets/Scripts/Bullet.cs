@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (gameObject.tag == "Catgun") { 
+       /* if (gameObject.tag == "Catgun") { 
 
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
@@ -20,11 +20,13 @@ public class Bullet : MonoBehaviour
 
             if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
             {
-                enemyComponent.TakeDamage((float)6);
+                print("hit by arrow");
+                enemyComponent.TakeDamage((float)2);
             }
         }
 
 
         Destroy(gameObject);
+       */
     }
 }

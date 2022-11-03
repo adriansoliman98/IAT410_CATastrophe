@@ -21,7 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3977400651290416870, guid: 635321d13e9c186499163ca43076a07d, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3977400651290416870, guid: 635321d13e9c186499163ca43076a07d, type: 3}
+      propertyPath: bulletDamage
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9140337903851025136, guid: 635321d13e9c186499163ca43076a07d, type: 3}
       propertyPath: m_RootOrder
