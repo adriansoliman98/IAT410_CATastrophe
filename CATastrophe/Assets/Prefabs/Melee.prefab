@@ -82,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 9140337903851025139, guid: 635321d13e9c186499163ca43076a07d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 48c97be5008fa4548a6a7f4d94fc0c54, type: 3}
+      objectReference: {fileID: 21300000, guid: 06dd673df7dd63c4abcf7a5cd9525b67, type: 3}
     - target: {fileID: 9140337903851025141, guid: 635321d13e9c186499163ca43076a07d, type: 3}
       propertyPath: m_Name
       value: Melee
@@ -140,7 +140,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6, y: 2.5}
+    oldSize: {x: 3.22, y: 0.92}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

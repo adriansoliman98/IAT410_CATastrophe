@@ -5,7 +5,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
-    public float health, maxHealth;
+    public float health;
+    public float maxHealth;
+
+    //planning to add health bar in the future
+    //public EnemyHealthBar enemyhealthBar;
 
     public float moveSpeed;
     public float checkRadius;
@@ -29,10 +33,10 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-       // health = maxHealth;
+        health = maxHealth;
 
         target = GameObject.FindWithTag("Player").transform;
-
+     //   enemyhealthBar.SetHealth(health, maxHealth);
     }
 
     private void Update()

@@ -251,7 +251,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-              SceneManager.LoadScene(Respawn);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             //Remove if we want player health
             /*  Destroy(gameObject);

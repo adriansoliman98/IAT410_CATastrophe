@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 889011598}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant (5)
@@ -210,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 1131200391}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -576,7 +580,6 @@ Transform:
   - {fileID: 164675537}
   - {fileID: 1114475432}
   - {fileID: 633366580}
-  - {fileID: 1168770931}
   - {fileID: 1185000179}
   - {fileID: 1357313424}
   - {fileID: 1906451744}
@@ -742,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 2122045363}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -750,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 532896519cb9c05449a84ba2013cdfd1, type: 2}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -821,7 +824,7 @@ PrefabInstance:
       objectReference: {fileID: 1244117523}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -1216,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 683086823}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -1388,7 +1391,7 @@ PrefabInstance:
       objectReference: {fileID: 1341120667}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -1532,7 +1535,7 @@ PrefabInstance:
       objectReference: {fileID: 1447675960}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -1595,6 +1598,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 2143360122}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant (9)
@@ -1665,6 +1672,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1114475435}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant (2)
@@ -1753,6 +1764,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1046832613}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant (8)
@@ -1767,11 +1782,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702673, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.494766
+      value: 12.24
       objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702673, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5751572
+      value: -11.74
       objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702673, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1925,12 +1940,16 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: moveSpeed
-      value: 6
+      value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: checkRadius
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: attackRadius
@@ -1942,7 +1961,11 @@ PrefabInstance:
       objectReference: {fileID: 2036259044}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -1974,7 +1997,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 6939c095a71d7a94399791fa846963f3, type: 3}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_LocalScale.x
@@ -1986,11 +2009,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4329376
+      value: -8.86
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.8885574
+      value: -10.89
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2024,6 +2047,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1177163043611358225, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
+      propertyPath: lootList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c4488cf2a3372844cb4dde33abc33678, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
 --- !u!1 &674507386
@@ -55658,12 +55685,20 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
+      propertyPath: checkRadius
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
+      propertyPath: attackRadius
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1342034713}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -55671,7 +55706,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 532896519cb9c05449a84ba2013cdfd1, type: 2}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55894,6 +55929,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1135447772}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant (6)
@@ -56063,6 +56102,74 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2484431903337702669, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
   m_PrefabInstance: {fileID: 661380851}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1072913917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1072913920}
+  - component: {fileID: 1072913919}
+  - component: {fileID: 1072913918}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1072913918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072913917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1072913919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072913917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1072913920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072913917}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1081168059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56074,6 +56181,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1357313427}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant
@@ -56084,7 +56195,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 691b4db04f934684dbb5ee8e4abf257e, type: 2}
     - target: {fileID: 2484431903337702673, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702673, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56139,6 +56250,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1992099553}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant (4)
@@ -56217,16 +56332,6 @@ Transform:
 Animator:
   m_CorrespondingSourceObject: {fileID: 2484431903337702669, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
   m_PrefabInstance: {fileID: 962017665}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1168770931 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-  m_PrefabInstance: {fileID: 2096143624}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1168770934 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-  m_PrefabInstance: {fileID: 2096143624}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1185000179 stripped
 Transform:
@@ -56524,7 +56629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243743000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 2.3, z: 0}
+  m_LocalPosition: {x: -0.4, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56760,7 +56865,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cdf746aa098f20148a2423ab542599a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -56780,7 +56885,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357686041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 86.72, y: -99.69, z: 0}
+  m_LocalPosition: {x: 86.72, y: -95.17, z: 0}
   m_LocalScale: {x: 2, y: 1.32, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57006,12 +57111,20 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
+      propertyPath: checkRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
+      propertyPath: attackRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1389589497}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -57019,7 +57132,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 532896519cb9c05449a84ba2013cdfd1, type: 2}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57074,6 +57187,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 981405608}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant (3)
@@ -57145,7 +57262,7 @@ PrefabInstance:
       objectReference: {fileID: 633366583}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -57214,7 +57331,7 @@ PrefabInstance:
       objectReference: {fileID: 717689133}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -57283,7 +57400,7 @@ PrefabInstance:
       objectReference: {fileID: 272472570}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -57352,7 +57469,7 @@ PrefabInstance:
       objectReference: {fileID: 2105852108}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -57415,6 +57532,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1813100684}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant (7)
@@ -57504,7 +57625,7 @@ PrefabInstance:
       objectReference: {fileID: 1352186623}
     - target: {fileID: 1177163043611358219, guid: 9c1163df70c8e1a44bf7fddec6275faa, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 9c1163df70c8e1a44bf7fddec6275faa, type: 3}
       propertyPath: m_Controller
@@ -57512,7 +57633,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 532896519cb9c05449a84ba2013cdfd1, type: 2}
     - target: {fileID: 1177163043611358224, guid: 9c1163df70c8e1a44bf7fddec6275faa, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 9c1163df70c8e1a44bf7fddec6275faa, type: 3}
       propertyPath: m_LocalScale.x
@@ -57524,11 +57645,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 9c1163df70c8e1a44bf7fddec6275faa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.438683
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 9c1163df70c8e1a44bf7fddec6275faa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.82856
+      value: -9.66
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 9c1163df70c8e1a44bf7fddec6275faa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57575,6 +57696,10 @@ PrefabInstance:
       propertyPath: enemyAnimator
       value: 
       objectReference: {fileID: 1185000182}
+    - target: {fileID: 2484431903337702666, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702667, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_Name
       value: Mouse Variant (1)
@@ -57585,7 +57710,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 691b4db04f934684dbb5ee8e4abf257e, type: 2}
     - target: {fileID: 2484431903337702673, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2484431903337702673, guid: 52225a1eb0942924a9f79c9df7b32730, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57921,7 +58046,7 @@ PrefabInstance:
       objectReference: {fileID: 1797377909}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -57929,7 +58054,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 532896519cb9c05449a84ba2013cdfd1, type: 2}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58000,7 +58125,7 @@ PrefabInstance:
       objectReference: {fileID: 2096194277}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
@@ -58134,75 +58259,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2836025367966452472, guid: efe24838071a51e4db1206e47197fd58, type: 3}
   m_PrefabInstance: {fileID: 2050885103}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2096143624
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 150976506}
-    m_Modifications:
-    - target: {fileID: 1177163043611358218, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_Name
-      value: Enemy (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 1168770934}
-    - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: playerMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 532896519cb9c05449a84ba2013cdfd1, type: 2}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_RootOrder
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -89.13634
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 52.304127
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.231512
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
 --- !u!95 &2096194277 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
@@ -58333,7 +58389,7 @@ PrefabInstance:
       objectReference: {fileID: 980666982}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: playerMask.m_Bits
-      value: 512
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358220, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Controller
