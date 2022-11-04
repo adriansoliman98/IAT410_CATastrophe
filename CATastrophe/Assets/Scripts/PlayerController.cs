@@ -177,10 +177,12 @@ public class PlayerController : MonoBehaviour
 
    
 
-            public void Shoot2(float x, float y)
+   public void Shoot2(float x, float y)
     {
 
-
+        userAnimator.SetFloat("BulletHorizontal", x);
+        userAnimator.SetFloat("BulletVertical", y);
+        userAnimator.SetTrigger("MeleeAttack");
 
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
@@ -223,7 +225,9 @@ public class PlayerController : MonoBehaviour
     public void Shoot3(float x, float y)
     {
 
-
+        userAnimator.SetFloat("BulletHorizontal", x);
+        userAnimator.SetFloat("BulletVertical", y);
+        userAnimator.SetTrigger("BottleAttack");
 
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
