@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour
         SetBulletPreFab(bulletPrefab);
         //   fireDelay = GameController.FireRate;
         //   speed = GameController.MoveSpeed;
-        ProcessInputs();
 
 
         float shootHor = Input.GetAxis("ShootHorizontal");
@@ -143,11 +142,72 @@ public class PlayerController : MonoBehaviour
 
     void DoAnimations()
     {
+        //checkKey();
+        //checkKeyMove();
         userAnimator.SetFloat("Horizontal", moveDirection.x);
         userAnimator.SetFloat("Vertical", moveDirection.y);
         userAnimator.SetFloat("Speed", moveDirection.sqrMagnitude);
 
-        //animator.SetFloat("Speed", moveSpeed);
+    }
+
+    void checkKey()
+    {
+        if (Input.GetKeyDown("up"))
+        {
+            userAnimator.SetTrigger("MeleeAttack");
+            userAnimator.SetFloat("BulletVertical", 1);
+            userAnimator.SetFloat("BulletHorizontal", 0);
+        }
+
+        else if (Input.GetKeyDown("down"))
+        {
+            userAnimator.SetTrigger("MeleeAttack");
+            userAnimator.SetFloat("BulletVertical", -1);
+            userAnimator.SetFloat("BulletHorizontal", 0);
+        }
+
+        else if (Input.GetKeyDown("left"))
+        {
+            userAnimator.SetTrigger("MeleeAttack");
+            userAnimator.SetFloat("BulletVertical", 0);
+            userAnimator.SetFloat("BulletHorizontal", -1);
+        }
+
+        else if (Input.GetKeyDown("right"))
+        {
+            userAnimator.SetTrigger("MeleeAttack");
+            userAnimator.SetFloat("BulletVertical", 0);
+            userAnimator.SetFloat("BulletHorizontal", 1);
+        }
+
+
+    }
+
+    void checkKeyMove()
+    {
+        if (Input.GetKeyDown("w"))
+        {
+            userAnimator.SetFloat("Horizontal", 0);
+            userAnimator.SetFloat("Vertical", 1);
+        }
+
+        else if (Input.GetKeyDown("a"))
+        {
+            userAnimator.SetFloat("Horizontal", -1);
+            userAnimator.SetFloat("Vertical", 0);
+        }
+
+        else if (Input.GetKeyDown("s"))
+        {
+            userAnimator.SetFloat("Horizontal", 0);
+            userAnimator.SetFloat("Vertical", -1);
+        }
+
+        else if (Input.GetKeyDown("d"))
+        {
+            userAnimator.SetFloat("Horizontal", 1);
+            userAnimator.SetFloat("Vertical", 0);
+        }
     }
 
     private void FixedUpdate()
@@ -179,10 +239,10 @@ public class PlayerController : MonoBehaviour
 
    public void Shoot2(float x, float y)
     {
-
+        userAnimator.SetTrigger("MeleeAttack");
         userAnimator.SetFloat("BulletHorizontal", x);
         userAnimator.SetFloat("BulletVertical", y);
-        userAnimator.SetTrigger("MeleeAttack");
+        
 
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
@@ -201,10 +261,10 @@ public class PlayerController : MonoBehaviour
     public void Shoot(float x, float y)
     {
 
-
+        userAnimator.SetTrigger("MoneyAttack");
         userAnimator.SetFloat("BulletHorizontal", x);
         userAnimator.SetFloat("BulletVertical", y);
-        userAnimator.SetTrigger("MoneyAttack");
+        
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
 
@@ -224,10 +284,10 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot3(float x, float y)
     {
-
+        userAnimator.SetTrigger("BottleAttack");
         userAnimator.SetFloat("BulletHorizontal", x);
         userAnimator.SetFloat("BulletVertical", y);
-        userAnimator.SetTrigger("BottleAttack");
+        
 
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
