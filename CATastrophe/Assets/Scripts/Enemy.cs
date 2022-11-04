@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
 
         dir.Normalize();
         movement = dir;
-        ProcessInputs();
+        
 
     }
 
@@ -57,9 +57,10 @@ public class Enemy : MonoBehaviour
 
         if (isInChaseRange)
         {
-            DoAnimations();
+            
             MoveCharacter();
-
+            ProcessInputs();
+            DoAnimations();
         }
 
         else
@@ -89,9 +90,9 @@ public class Enemy : MonoBehaviour
 
     void DoAnimations()
     {
-        enemyAnimator.SetFloat("Horizontal", moveDirection.x);
-        enemyAnimator.SetFloat("Vertical", moveDirection.y);
-        enemyAnimator.SetFloat("Speed", moveDirection.magnitude);
+        enemyAnimator.SetFloat("enemyHorizontal", moveDirection.x);
+        enemyAnimator.SetFloat("enemyVertical", moveDirection.y);
+        enemyAnimator.SetFloat("enemySpeed", moveDirection.magnitude);
 
         //animator.SetFloat("Speed", moveSpeed);
     }
