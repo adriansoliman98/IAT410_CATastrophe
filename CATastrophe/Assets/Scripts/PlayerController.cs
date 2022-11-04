@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     private float fireDelay;
     public int Respawn;
 
+    public Animator userAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,7 +129,9 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
+    /// <summary>
+    /// ANIMATIONS
+    /// </summary>
     void ProcessInputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -137,9 +141,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void DoAnimations()
+    {
+        userAnimator.SetFloat("Horizontal", moveDirection.x);
+        userAnimator.SetFloat("Vertical", moveDirection.y);
+        userAnimator.SetFloat("Speed", moveDirection.sqrMagnitude);
+
+        //animator.SetFloat("Speed", moveSpeed);
+    }
+
     private void FixedUpdate()
     {
         Move();
+        ProcessInputs();
+        DoAnimations();
+
     }
 
     public void SetBulletPreFab(GameObject newBullet)
@@ -184,7 +200,9 @@ public class PlayerController : MonoBehaviour
     {
 
 
-
+        userAnimator.SetFloat("BulletHorizontal", x);
+        userAnimator.SetFloat("BulletVertical", y);
+        userAnimator.SetTrigger("MoneyAttack");
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
 

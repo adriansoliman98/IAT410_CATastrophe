@@ -19,10 +19,12 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 movement;
     public Vector3 dir;
-    private Animator anim;
+    public Animator enemyAnimator;
 
     private bool isInChaseRange;
     private bool isInAttackRange;
+
+    Vector2 moveDirection;
 
 
     private void Start()
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour
 
         dir.Normalize();
         movement = dir;
+        ProcessInputs();
 
     }
 
@@ -50,7 +53,7 @@ public class Enemy : MonoBehaviour
 
         if (isInChaseRange)
         {
-
+            DoAnimations();
             MoveCharacter();
 
         }
@@ -70,6 +73,25 @@ public class Enemy : MonoBehaviour
 
 
     }
+
+    void ProcessInputs()
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        moveDirection = new Vector2(moveX, moveY).normalized;
+
+    }
+
+    void DoAnimations()
+    {
+        enemyAnimator.SetFloat("Horizontal", moveDirection.x);
+        enemyAnimator.SetFloat("Vertical", moveDirection.y);
+        enemyAnimator.SetFloat("Speed", moveDirection.magnitude);
+
+        //animator.SetFloat("Speed", moveSpeed);
+    }
+
     // Update is called once per frame
     public void TakeDamage(float damageAmount)
     {
