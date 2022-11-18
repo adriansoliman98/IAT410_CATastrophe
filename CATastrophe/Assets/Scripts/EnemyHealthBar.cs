@@ -11,11 +11,7 @@ public class EnemyHealthBar : MonoBehaviour
     public Color High;
     public Vector3 Offset;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+ 
     public void SetHealth(float health, float maxHealth)
     {
         Slider.gameObject.SetActive(health < maxHealth);

@@ -13,6 +13,7 @@ TagManager:
   - Arrow
   - Item
   - Melee
+  - BossBullet
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Catgun
   - Enemy
   - Item
-  - 
+  - BossBullet
   - 
   - 
   - 

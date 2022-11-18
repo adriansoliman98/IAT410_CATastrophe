@@ -7,9 +7,10 @@ public class Enemy : MonoBehaviour
 {
     public float health;
     public float maxHealth;
+   
 
     //planning to add health bar in the future
-    //public EnemyHealthBar enemyhealthBar;
+    public EnemyHealthBar enemyhealthBar;
 
     public float moveSpeed;
     public float checkRadius;
@@ -34,9 +35,9 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         health = maxHealth;
-
+        enemyhealthBar.SetHealth(health, maxHealth);
         target = GameObject.FindWithTag("Player").transform;
-     //   enemyhealthBar.SetHealth(health, maxHealth);
+   
     }
 
     private void Update()
@@ -102,7 +103,7 @@ public class Enemy : MonoBehaviour
     {
         health -= damageAmount;
 
-
+        enemyhealthBar.SetHealth(health, maxHealth);
 
         if (health <= 0)
         {

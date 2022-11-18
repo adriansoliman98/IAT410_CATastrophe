@@ -74,13 +74,13 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    /*public void PlayerHit()
+    public void PlayerHit()
     {
         rb2.MovePosition((Vector2)transform.position *-2  - (movement * moveSpeed1 * 2));
 
 
     }
-*/
+
     public void TakeDamage(float damageAmount)
     {
       /*  health -= damageAmount;

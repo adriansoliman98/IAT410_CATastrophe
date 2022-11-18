@@ -1973,11 +1973,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 532896519cb9c05449a84ba2013cdfd1, type: 2}
     - target: {fileID: 1177163043611358222, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Size.x
-      value: 1.7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358222, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Size.y
-      value: 3.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358222, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Offset.x
@@ -1985,16 +1985,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358222, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.55
+      value: 4.13
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358222, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 3.53
+      value: 2.98
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358223, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6939c095a71d7a94399791fa846963f3, type: 3}
+      objectReference: {fileID: 21300000, guid: 257a8a832e1cbb44883ebbb53b2474d5, type: 3}
     - target: {fileID: 1177163043611358224, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -2048,9 +2048,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358225, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
+      propertyPath: dropChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177163043611358225, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
+      propertyPath: lootList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177163043611358225, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: lootList.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: c4488cf2a3372844cb4dde33abc33678, type: 2}
+      objectReference: {fileID: 11400000, guid: debea8154096c284bb46a6a5b7b18cd2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
 --- !u!1 &674507386
@@ -57112,11 +57120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: checkRadius
-      value: 4
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: attackRadius
-      value: 4
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1177163043611358219, guid: 3d6ca216a58619545b61be29b1ef77e2, type: 3}
       propertyPath: enemyAnimator

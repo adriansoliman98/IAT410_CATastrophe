@@ -261,6 +261,8 @@ public class PlayerController : MonoBehaviour
     public void Shoot(float x, float y)
     {
 
+
+
         userAnimator.SetTrigger("MoneyAttack");
         userAnimator.SetFloat("BulletHorizontal", x);
         userAnimator.SetFloat("BulletVertical", y);
@@ -273,8 +275,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-        (x < 0) ? Mathf.Floor(x) * bulletSpeed : Mathf.Ceil(x) * bulletSpeed,
-        (y < 0) ? Mathf.Floor(y) * bulletSpeed : Mathf.Ceil(y) * bulletSpeed,
+        (x < 0) ? Mathf.Floor(x) * bulletSpeed + moveDirection.x : Mathf.Ceil(x) * bulletSpeed + moveDirection.x,
+        (y < 0) ? Mathf.Floor(y) * bulletSpeed + moveDirection.y : Mathf.Ceil(y) * bulletSpeed+ moveDirection.y,
         0
     );
 
@@ -311,20 +313,39 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+           // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             //Remove if we want player health
-            /*  Destroy(gameObject);
+           
 
             playerHealth--;
             print(playerHealth);
-            enemyAI.PlayerHit();
+            //enemyAI.PlayerHit();
             if (playerHealth < 1)
             {
                 Destroy(gameObject);
             }
-            */
-            //    }
+            
+                
         }
-}
+
+
+        if (collision.gameObject.tag == "BossBullet")
+        {
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            //Remove if we want player health
+
+
+            playerHealth = playerHealth - 3;
+            print(playerHealth);
+            //enemyAI.PlayerHit();
+            if (playerHealth < 1)
+            {
+                Destroy(gameObject);
+            }
+
+
+        }
+    }
 }
