@@ -59,8 +59,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
+        
     }
 
 
@@ -84,7 +83,11 @@ public class PlayerController : MonoBehaviour
 
         weaponSwitch = player2.GetComponent<WeaponSwitch>();
 
-        enemyAI = player2.GetComponent<EnemyAI>();  
+        enemyAI = player2.GetComponent<EnemyAI>();
+
+        //inventory
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
 
     }
 
