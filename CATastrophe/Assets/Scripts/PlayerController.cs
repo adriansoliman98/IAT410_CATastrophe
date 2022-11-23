@@ -51,6 +51,19 @@ public class PlayerController : MonoBehaviour
 
     public Animator userAnimator;
 
+    //inventory
+    [SerializeField] private UI_Inventory uiInventory;
+    private Inventory inventory;
+
+    //called once at startup
+    private void Awake()
+    {
+        
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
