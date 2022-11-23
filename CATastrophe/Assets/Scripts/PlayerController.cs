@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+ 
 
     int totalWeapons = 1;
     public int currentWeaponIndex;
@@ -122,8 +123,7 @@ public class PlayerController : MonoBehaviour
 
 
        
-
-
+        
 
 
 
@@ -136,7 +136,9 @@ public class PlayerController : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
+
         moveDirection = new Vector2(moveX, moveY).normalized;
+
 
     }
 
@@ -226,9 +228,11 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
 
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
+
+
 
     public void GainWeapon()
     {
@@ -304,19 +308,30 @@ public class PlayerController : MonoBehaviour
         0
     );
     }
-      
 
-        private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+
+            Vector2 difference = transform.position - other.transform.position;
+            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
+        }
+    }
+    */
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
 
         
 
         if (collision.gameObject.tag == "Enemy")
         {
-           // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             //Remove if we want player health
-           
+            Vector2 difference = transform.position - collision.transform.position;
+            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
 
             playerHealth--;
             print(playerHealth);

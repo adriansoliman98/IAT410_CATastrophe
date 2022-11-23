@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Enemy : MonoBehaviour
+public class MouseAI : MonoBehaviour
 {
     public float health;
     public float maxHealth;
@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
 
     //planning to add health bar in the future
     public EnemyHealthBar enemyhealthBar;
+
+    private BulletControl bulletControl;
 
     public float moveSpeed;
     public float checkRadius;
@@ -32,25 +34,34 @@ public class Enemy : MonoBehaviour
     private bool isInAttackRange;
 
     Vector2 moveDirection;
+    public Vector3 lastVelocity;
 
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {
+
+        
         health = maxHealth;
         enemyhealthBar.SetHealth(health, maxHealth);
         target = GameObject.FindWithTag("Player").transform;
-
+      
     }
 
     private void Update()
     {
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, playerMask);
+       // rb.AddForce(new Vector2(9.8f * 25f, 9.8f * 25f));
+        // isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, playerMask);
+        lastVelocity = rb.velocity;
+        
+        // dir = target.position - transform.position;
 
-
-        dir = target.position - transform.position;
-
-        dir.Normalize();
-        movement = dir;
+        //   dir.Normalize();
+        //  movement = dir;
 
 
     }
@@ -58,9 +69,10 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if (isInChaseRange)
+      /*  if (isInChaseRange)
         {
-
+            lastVelocity = rb.velocity;
+            transform.position = lastVelocity;
             MoveCharacter();
             ProcessInputs();
             DoAnimations();
@@ -69,16 +81,35 @@ public class Enemy : MonoBehaviour
         else
         {
 
-            rb.velocity = Vector2.zero;
+           // rb.velocity = Vector2.zero;
         }
 
-
+        */
     }
+
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Catgun")
+        {
+            // enemyComponent.TakeDamage(bulletDamage);
+            // Destroy(gameObject);
+
+        }
+        else
+        {
+            var speed = lastVelocity.magnitude;
+            var direction = Vector3.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
+
+            rb.velocity = direction * Mathf.Max(speed, 2f);
+        }
+    }
+
 
     private void MoveCharacter()
     {
-        rb.MovePosition((Vector2)transform.position + (movement * moveSpeed * Time.deltaTime));
-
+      //  rb.MovePosition((Vector2)transform.position + (movement * moveSpeed * Time.deltaTime));
+      lastVelocity = rb.velocity;
 
     }
 
@@ -87,7 +118,7 @@ public class Enemy : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector2(moveX, moveY).normalized;
+      //  moveDirection = new Vector2(moveX, moveY).normalized;
 
     }
 
@@ -109,10 +140,10 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(this.gameObject);
+          //  Destroy(this.gameObject);
             // GetComponent<ItemSpawner>().Spawn();
-            GetComponent<LootBag>().InstantiateLoot(transform.position);
-            Instantiate(particleScript, transform.position, Quaternion.identity);
+         //   GetComponent<LootBag>().InstantiateLoot(transform.position);
+          //  Instantiate(particleScript, transform.position, Quaternion.identity);
 
         }
 
@@ -120,5 +151,6 @@ public class Enemy : MonoBehaviour
     }
 
 
-   
+
+
 }

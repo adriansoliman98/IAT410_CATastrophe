@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1177163043611358222}
   - component: {fileID: 1177163043611358221}
   - component: {fileID: 1177163043611358220}
-  - component: {fileID: 1177163043611358219}
   - component: {fileID: 1177163043611358225}
+  - component: {fileID: 3186443382546759561}
   m_Layer: 9
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -156,29 +156,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1177163043611358219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177163043611358218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350eb09a09f37f846ba5540aafb8211e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 6
-  maxHealth: 6
-  moveSpeed: 5
-  checkRadius: 9
-  attackRadius: 9
-  shouldRotate: 0
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  rb: {fileID: 1177163043611358221}
-  dir: {x: 0, y: 0, z: 0}
 --- !u!114 &1177163043611358225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +175,29 @@ MonoBehaviour:
   lootList:
   - {fileID: 11400000, guid: 7a8101c17e7a8e749b37c9d402d64afa, type: 2}
   - {fileID: 11400000, guid: debea8154096c284bb46a6a5b7b18cd2, type: 2}
+--- !u!114 &3186443382546759561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177163043611358218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350eb09a09f37f846ba5540aafb8211e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  playerController: {fileID: 0}
+  enemyhealthBar: {fileID: 0}
+  moveSpeed: 0
+  checkRadius: 0
+  attackRadius: 0
+  shouldRotate: 0
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  rb: {fileID: 0}
+  dir: {x: 0, y: 0, z: 0}
+  enemyAnimator: {fileID: 0}
