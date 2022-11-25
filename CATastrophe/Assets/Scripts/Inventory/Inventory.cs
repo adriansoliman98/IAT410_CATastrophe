@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Inventory 
 {
-
+    public event EventHandler OnWeaponListChanged;
     private List<WeaponItem> weaponList;
 
     public Inventory()
@@ -24,7 +26,28 @@ public class Inventory
 
     public void AddWeapon(WeaponItem weaponItem)
     {
-        weaponList.Add(weaponItem);
+        if (weaponItem.IsStackable())
+        {
+            bool weapponAlreadyInInvetory = false;
+            foreach (WeaponItem inventoryWeapon in weaponList)
+            {
+                if (inventoryWeapon.weaponType == weaponItem.weaponType)
+                {
+                    inventoryWeapon.amount += weaponItem.amount;
+                    weapponAlreadyInInvetory = true;
+                }
+            }
+            if (!weapponAlreadyInInvetory)
+            {
+                weaponList.Add(weaponItem);
+            }
+        } else{
+            weaponList.Add(weaponItem);
+        }
+
+
+    
+        OnWeaponListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public List<WeaponItem> GetWeaponList()

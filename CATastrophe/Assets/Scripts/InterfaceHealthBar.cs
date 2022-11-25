@@ -5,7 +5,7 @@ using UnityEngine;
 public class InterfaceHealthBar : MonoBehaviour
 {
     public PlayerController playerController;
-    public Sprite HB1, HB2, HB3;
+    public Sprite HB0, HB1, HB2, HB3;
     public float healthBar;
     public Transform toFollow;
     private Vector3 offset;
@@ -23,7 +23,7 @@ public class InterfaceHealthBar : MonoBehaviour
         //print(playerController.playerHealth);
         if (playerController.playerHealth == 3)
         {
-            print(playerController.playerHealth);
+            //print(playerController.playerHealth);
             GetComponent<SpriteRenderer>().sprite = HB3;
         }
         if (playerController.playerHealth == 2)
@@ -35,8 +35,13 @@ public class InterfaceHealthBar : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = HB1;
         }
 
-       
-            transform.position = toFollow.position - offset;
+        if (playerController.playerHealth == 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = HB0;
+        }
+
+
+        transform.position = toFollow.position - offset;
             transform.rotation = toFollow.rotation;
         
 

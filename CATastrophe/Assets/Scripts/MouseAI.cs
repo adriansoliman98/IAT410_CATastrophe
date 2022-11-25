@@ -49,7 +49,7 @@ public class MouseAI : MonoBehaviour
         health = maxHealth;
         enemyhealthBar.SetHealth(health, maxHealth);
         target = GameObject.FindWithTag("Player").transform;
-      
+        rb.velocity = new Vector2(15f, 15f);
     }
 
     private void Update()
@@ -69,22 +69,7 @@ public class MouseAI : MonoBehaviour
     private void FixedUpdate()
     {
 
-      /*  if (isInChaseRange)
-        {
-            lastVelocity = rb.velocity;
-            transform.position = lastVelocity;
-            MoveCharacter();
-            ProcessInputs();
-            DoAnimations();
-        }
-
-        else
-        {
-
-           // rb.velocity = Vector2.zero;
-        }
-
-        */
+    
     }
 
 
@@ -101,7 +86,7 @@ public class MouseAI : MonoBehaviour
             var speed = lastVelocity.magnitude;
             var direction = Vector3.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
 
-            rb.velocity = direction * Mathf.Max(speed, 2f);
+            rb.velocity = direction * Mathf.Max(speed, 12f);
         }
     }
 
@@ -140,7 +125,7 @@ public class MouseAI : MonoBehaviour
 
         if (health <= 0)
         {
-          //  Destroy(this.gameObject);
+            Destroy(this.gameObject);
             // GetComponent<ItemSpawner>().Spawn();
          //   GetComponent<LootBag>().InstantiateLoot(transform.position);
           //  Instantiate(particleScript, transform.position, Quaternion.identity);

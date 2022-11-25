@@ -10,11 +10,13 @@ public class WeaponAssets : MonoBehaviour
     {
         Instance = this;
     }
+    public Transform pfWeaponWorld;
 
     public Sprite supremeGunSprite;
     public Sprite knifeSprite;
     public Sprite sprayBottleSprite;
     public Sprite minecraftBowSprite;
+    public Sprite nothing;
 
 
 }

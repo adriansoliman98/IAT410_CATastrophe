@@ -16,11 +16,11 @@ public class WeaponSwitch : MonoBehaviour
 
     PlayerController playerController;
 
-    //  int totalWeapons = 2;
-    //  public int currentWeaponIndex;
+   // int totalWeapons = 2;
+   // public int currentWeaponIndex;
 
-    //    public GameObject[] guns;
-    //  public GameObject weaponHolder;
+   // public GameObject[] guns;
+    //public GameObject weaponHolder;
     //  public GameObject currentGun;
     // Start is called before the first frame update
 
@@ -31,25 +31,11 @@ public class WeaponSwitch : MonoBehaviour
     void Start()
     {
 
-
-
-        //  totalWeapons = weaponHolder.transform.childCount;
-        //   guns = new GameObject[totalWeapons];
-
-        /*(
-        8for (int i = 0; i < totalWeapons; i++)
-           {
-               guns[i] = weaponHolder.transform.GetChild(i).gameObject;
-               guns[i].SetActive(false);
-
-           }
-
-           guns[0].SetActive(true);
-           currentGun = guns[0];
-           currentWeaponIndex = 0;
-
-           */
-
+        WeaponCash = true;
+        WeaponArrow = false;
+        WeaponMelee = false;
+        currentGun = 1;
+        SetWeapon(1);
     }
 
 
@@ -58,6 +44,8 @@ public class WeaponSwitch : MonoBehaviour
     void Update()
     {
 
+      
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             WeaponCash = true;
@@ -65,22 +53,22 @@ public class WeaponSwitch : MonoBehaviour
             WeaponMelee = false;
             currentGun = 1;
             SetWeapon(1);
-            
+
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
-         //   if (bowInventory == true)
-        //    {
+            // if (bowInventory == true)
+            {
                 WeaponCash = false;
-            WeaponArrow = false;
-              WeaponMelee = true;
+                WeaponArrow = false;
+                WeaponMelee = true;
                 currentGun = 2;
-            print(WeaponMelee);
+                print(WeaponMelee);
                 SetWeapon(2);
-         //   }
-           
+            }
+
 
         }
 
@@ -88,14 +76,14 @@ public class WeaponSwitch : MonoBehaviour
         {
 
             //   if (bowInventory == true)
-            //    {
-            WeaponCash = false;
-            WeaponMelee = false;
-            WeaponArrow = true;
-            currentGun = 3;
-         
-            SetWeapon(3);
-            //   }
+            {
+                WeaponCash = false;
+                WeaponMelee = false;
+                WeaponArrow = true;
+                currentGun = 3;
+
+                SetWeapon(3);
+            }
 
 
         }
@@ -107,30 +95,34 @@ public class WeaponSwitch : MonoBehaviour
 
     void SetWeapon(int weaponID)
     {
-        /*  if (currentGun == 1) { 
-          playerController.SetBulletPreFab(cashgun);
-      }
-          else if (currentGun == 2) { 
+    /*    if (currentGun == 1)
+        {
+            playerController.SetBulletPreFab(cashgun);
+        }
+        else if (currentGun == 2)
+        {
 
-                  playerController.SetBulletPreFab(bow);
+            playerController.SetBulletPreFab(bow);
 
-          }
-      }*/
+        }
+    */
         switch (weaponID)
         {
             case 1:
                 playerController.SetBulletPreFab(cashgun);
-             
+
                 break;
             case 2:
                 playerController.SetBulletPreFab(melee);
-            
+
                 break;
 
             case 3:
                 playerController.SetBulletPreFab(arrow);
 
                 break;
+
+
 
         }
     }

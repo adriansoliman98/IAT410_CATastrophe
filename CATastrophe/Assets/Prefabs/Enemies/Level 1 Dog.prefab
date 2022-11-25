@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 695989389881609602}
   - component: {fileID: 695989389881609605}
   - component: {fileID: 695989389881609631}
+  - component: {fileID: 9120822106107994997}
   m_Layer: 9
-  m_Name: Dog Prefab
+  m_Name: Level 1 Dog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,14 +170,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350eb09a09f37f846ba5540aafb8211e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 6
-  maxHealth: 6
-  PlayerController: {fileID: 0}
+  health: 5
+  maxHealth: 5
+  particleScript: {fileID: 8793320645036277818, guid: 1784e721216b1ad4e9a4b548dbd3489c, type: 3}
+  bossDead: 0
   enemyhealthBar: {fileID: 2791116462686339802}
   moveSpeed: 7
   checkRadius: 28
   attackRadius: 28
   shouldRotate: 0
+  dropItem: 0
   playerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -202,6 +205,22 @@ MonoBehaviour:
   lootList:
   - {fileID: 11400000, guid: 7a8101c17e7a8e749b37c9d402d64afa, type: 2}
   - {fileID: 11400000, guid: debea8154096c284bb46a6a5b7b18cd2, type: 2}
+--- !u!114 &9120822106107994997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695989389881609604}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea028d3008d3e2a48b45064349e98b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponItem:
+    weaponType: 0
+    amount: 1
+  droppedItemPrefab: {fileID: 0}
 --- !u!1 &1252887639871813262
 GameObject:
   m_ObjectHideFlags: 0

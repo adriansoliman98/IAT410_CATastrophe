@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class WeaponItem
 {
     public enum WeaponType
@@ -10,6 +12,7 @@ public class WeaponItem
         Knife,
         SprayBottle,
         MinecraftBow,
+        Nothing,
     }
 
 
@@ -26,7 +29,21 @@ public class WeaponItem
             case WeaponType.Knife:           return WeaponAssets.Instance.knifeSprite;
             case WeaponType.SprayBottle:     return WeaponAssets.Instance.sprayBottleSprite;
             case WeaponType.MinecraftBow:    return WeaponAssets.Instance.minecraftBowSprite;
+            case WeaponType.Nothing:         return WeaponAssets.Instance.nothing;
 
         }
     }
+
+    public bool IsStackable() {
+        switch (weaponType) {
+            default:
+            case WeaponType.SupremeGun:
+            case WeaponType.Knife:
+            case WeaponType.SprayBottle:              
+                return true;
+            case WeaponType.MinecraftBow:
+                return false;
+        }
+    }
+
 }

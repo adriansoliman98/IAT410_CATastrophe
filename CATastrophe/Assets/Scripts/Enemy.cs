@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
     public float health;
     public float maxHealth;
 
-    public ParticleScript particleScript;
-
+    public GameObject particleScript;
+    public bool bossDead;
 
     //planning to add health bar in the future
     public EnemyHealthBar enemyhealthBar;
@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     public float attackRadius;
 
     public bool shouldRotate;
+    public bool dropItem;
 
     public LayerMask playerMask;
 
@@ -51,7 +52,7 @@ public class Enemy : MonoBehaviour
 
         dir.Normalize();
         movement = dir;
-
+        
 
     }
 
@@ -107,18 +108,38 @@ public class Enemy : MonoBehaviour
 
         enemyhealthBar.SetHealth(health, maxHealth);
 
+
+
         if (health <= 0)
         {
             Destroy(this.gameObject);
             // GetComponent<ItemSpawner>().Spawn();
-            GetComponent<LootBag>().InstantiateLoot(transform.position);
             Instantiate(particleScript, transform.position, Quaternion.identity);
+            if (dropItem == true) { 
 
+            GetComponent<WeaponWorldSpawner>().InstantiateLoot();
+           
         }
+            //if (gameObject.tag == "firstBoss")
+            //  {
+
+           
+            }
+
+        if (this.gameObject.tag == "FirstBoss")
+        {
+            if (health <= 0)
+            {
+             //   bossDead = true;
+             }
+        }
+
+
+
 
 
     }
 
 
-   
+
 }

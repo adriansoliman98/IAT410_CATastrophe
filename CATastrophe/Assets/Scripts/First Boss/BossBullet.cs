@@ -31,7 +31,7 @@ public class BossBullet : MonoBehaviour
 
     private void OnDestroy()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     private void OnDisable()
@@ -43,22 +43,17 @@ public class BossBullet : MonoBehaviour
     {
 
 
-        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
-        {
-          //  enemyComponent.TakeDamage(bulletDamage);
-            Destroy(gameObject);
 
-        }
 
-        if (collision.gameObject.TryGetComponent<Furniture>(out Furniture furnitureComponent))
+        if (collision.gameObject.tag == "room")
         {
-           // furnitureComponent.TakeDamage(bulletDamage);
+            // furnitureComponent.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
 
 
+       // Destroy(gameObject);
 
-
-        Destroy(gameObject);
+        //  Destroy(gameObject);
     }
 }

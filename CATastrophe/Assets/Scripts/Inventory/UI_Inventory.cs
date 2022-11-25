@@ -2,27 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using static WeaponItem;
 
 public class UI_Inventory : MonoBehaviour
 {
+    public bool gunShoot = false;
     private Inventory inventory;
     private Transform weaponSlotContainer;
     private Transform weaponSlotTemplate;
+    public int knifeAmount;
+    public int sprayBottleAmount;
+    public int supremeGunAmount;
+    public int minecraftBowAmount;
+    // public TextMeshProUGUI text;
 
     private void Awake()
     {
         weaponSlotContainer = transform.Find("weaponSlotContainer");
         weaponSlotTemplate = weaponSlotContainer.Find("weaponSlotTemplate");
+       // text = GetComponent<TextMeshProUGUI>();
+
     }
 
     public void SetInventory(Inventory inv)
     {
         this.inventory = inv;
+
+        inventory.OnWeaponListChanged += Invetory_OnWeaponListChanged;
+
         RefreshInventoryWeapons();
     }
 
-    private void RefreshInventoryWeapons()
+    private void Invetory_OnWeaponListChanged (object sender, System.EventArgs e)
     {
+        RefreshInventoryWeapons();
+    }
+
+    public void RefreshInventoryWeapons()
+    {
+        foreach (Transform child in weaponSlotContainer)
+        {
+            if (child == weaponSlotTemplate) continue;
+            Destroy(child.gameObject);
+        }
+
+
         int x = 0;
         int y = 0;
         float inventorySlotCellSize = 120f;
@@ -39,6 +64,42 @@ public class UI_Inventory : MonoBehaviour
             //retrieve the correct sprite
             Image image = weaponSlotRectTransform.Find("image").GetComponent<Image>();
             image.sprite = weapon.GetSprite();
+
+            TextMeshProUGUI uiText = weaponSlotRectTransform.Find("text").GetComponent<TextMeshProUGUI>();
+            if (weapon.amount > 1)
+            {
+                uiText.SetText(weapon.amount.ToString());
+            } else {
+               uiText.SetText(" ");
+            }
+
+         //   print(weapon.amount);
+          //  print(weapon.weaponType);
+
+
+            if (weapon.weaponType == WeaponType.Knife)
+            {
+                knifeAmount = weapon.amount ;
+                
+            }
+
+            if (weapon.weaponType == WeaponType.SupremeGun)
+            {
+                supremeGunAmount = weapon.amount;
+
+            }
+            if (weapon.weaponType == WeaponType.SprayBottle)
+            {
+                sprayBottleAmount = weapon.amount;
+
+            }
+            if (weapon.weaponType == WeaponType.MinecraftBow)
+            {
+                minecraftBowAmount = weapon.amount;
+
+            }
+
+
             x++;
             if (x > 5)
             {

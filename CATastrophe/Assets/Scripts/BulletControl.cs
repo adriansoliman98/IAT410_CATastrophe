@@ -42,7 +42,14 @@ public class BulletControl : MonoBehaviour
 
         }
 
-            if (collision.gameObject.TryGetComponent<Furniture>(out Furniture furnitureComponent))
+        if (collision.gameObject.TryGetComponent<MouseAI>(out MouseAI mouseAIComponent))
+        {
+            mouseAIComponent.TakeDamage(bulletDamage);
+            Destroy(gameObject);
+
+        }
+
+        if (collision.gameObject.TryGetComponent<Furniture>(out Furniture furnitureComponent))
             {
                 furnitureComponent.TakeDamage(bulletDamage);
             Destroy(gameObject);
