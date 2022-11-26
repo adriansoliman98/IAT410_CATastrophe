@@ -508,7 +508,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+             
 
             //Remove if we want player health
             Vector2 difference = transform.position - collision.transform.position;
@@ -522,6 +522,7 @@ public class PlayerController : MonoBehaviour
             if (playerHealth < 1)
             {
                 Destroy(gameObject);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
             
                 
@@ -543,6 +544,7 @@ public class PlayerController : MonoBehaviour
             if (playerHealth < 1)
             {
                 Destroy(gameObject);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
 
@@ -564,6 +566,7 @@ public class PlayerController : MonoBehaviour
             if (playerHealth < 1)
             {
                 Destroy(gameObject);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
 

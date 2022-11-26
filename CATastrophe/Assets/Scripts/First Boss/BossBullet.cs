@@ -51,8 +51,14 @@ public class BossBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (collision.gameObject.tag == "Player")
+        {
+            // furnitureComponent.TakeDamage(bulletDamage);
+            Destroy(gameObject);
+        }
 
-       // Destroy(gameObject);
+
+        // Destroy(gameObject);
 
         //  Destroy(gameObject);
     }

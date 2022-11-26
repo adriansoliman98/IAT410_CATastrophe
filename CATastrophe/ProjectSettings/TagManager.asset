@@ -16,6 +16,9 @@ TagManager:
   - BossBullet
   - firstBoss
   - level2start
+  - Level1Exit
+  - Level2Exit
+  - Level3Start
   layers:
   - Default
   - TransparentFX
