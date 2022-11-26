@@ -85,10 +85,12 @@ public class Enemy : MonoBehaviour
 
     void ProcessInputs()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        //float moveX = Input.GetAxisRaw("Horizontal");
+        //float moveY = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector2(moveX, moveY).normalized;
+        //moveDirection = new Vector2(moveX, moveY).normalized;
+
+        moveDirection = movement;
 
     }
 
@@ -98,7 +100,7 @@ public class Enemy : MonoBehaviour
         enemyAnimator.SetFloat("enemyVertical", moveDirection.y);
         enemyAnimator.SetFloat("enemySpeed", moveDirection.magnitude);
 
-        //animator.SetFloat("Speed", moveSpeed);
+        
     }
 
     // Update is called once per frame

@@ -7,7 +7,7 @@ public class GirlFireBullets : MonoBehaviour
 
 {
 
-   
+    public Animator girlBossAnimator;
     public int bulletsAmount;
 
 
@@ -26,11 +26,16 @@ public class GirlFireBullets : MonoBehaviour
 
     private void Fire()
     {
+        girlBossAnimator.SetTrigger("CircleAttack");
+
         float angleStep = (endAngle - startAngle) / bulletsAmount;
         float angle = startAngle;
 
+        
         for (int i = 0; i < bulletsAmount; i++)
         {
+            
+
             float bulDirx = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
             float bulDiry = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
 
@@ -45,7 +50,9 @@ public class GirlFireBullets : MonoBehaviour
 
             angle += angleStep;
 
-        }    
+        }
+
+        //girlBossAnimator.ResetTrigger("CircleAttack");
     }
 
     // Update is called once per frame
