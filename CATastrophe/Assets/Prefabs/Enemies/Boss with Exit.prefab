@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 8762621526989194458}
   - component: {fileID: 8762621526989194461}
   - component: {fileID: 8762621526989194460}
+  - component: {fileID: 1479979224486853588}
   m_Layer: 9
   m_Name: Boss with Exit
   m_TagString: firstBoss
@@ -518,6 +519,26 @@ MonoBehaviour:
     weaponType: 4
     amount: 0
   droppedItemPrefab: {fileID: 0}
+--- !u!95 &1479979224486853588
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762621526989194453}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ad4fbff270d8b345b6c81acd67e033f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8762621527709763822
 GameObject:
   m_ObjectHideFlags: 0
