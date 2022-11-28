@@ -126,6 +126,8 @@ public class PlayerController : MonoBehaviour
         //   fireDelay = GameController.FireRate;
         //   speed = GameController.MoveSpeed;
 
+        print(transform.position.x);
+        print(transform.position.y);
 
         float shootHor = Input.GetAxis("ShootHorizontal");
         float shootVert = Input.GetAxis("ShootVertical");
@@ -552,7 +554,7 @@ public class PlayerController : MonoBehaviour
 
             //Remove if we want player health
             Vector2 difference = transform.position - collision.transform.position;
-            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
+            rb.velocity  = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
 
             playerHealth--;
             print(playerHealth);
@@ -610,9 +612,9 @@ public class PlayerController : MonoBehaviour
 
             //Remove if we want player health
             Vector2 difference = transform.position - collision.transform.position;
-            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
-
+            rb.velocity = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
             playerHealth--;
+            rb.MovePosition(rb.velocity);
            // print(playerHealth);
 
             Instantiate(particleScript, transform.position, Quaternion.identity);
