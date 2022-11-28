@@ -38,6 +38,13 @@ public class OpenExit : MonoBehaviour
 
            
         }
+
+        if (gameObject.tag == "thirdBoss")
+            if (enemy.bossDead == true)
+            {
+                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+            }
+
         //  print(enemy.bossDead);
     }
 }

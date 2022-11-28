@@ -339,6 +339,23 @@ public class PlayerController : MonoBehaviour
             bulletMelee4.GetComponent<Rigidbody2D>().velocity = newKnife3;
 
         }
+
+        if (uiInventory.knifeAmount > 3)
+        {
+            //   bulletPrefab.transform.localScale = new Vector3(13, 13, 0);
+            GameObject bulletMelee = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+            bulletMelee.GetComponent<Rigidbody2D>().velocity = knifeDir;
+
+            GameObject bulletMelee2 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+            bulletMelee2.GetComponent<Rigidbody2D>().velocity = newKnife;
+
+            GameObject bulletMelee3 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+            bulletMelee3.GetComponent<Rigidbody2D>().velocity = newKnife2;
+
+            GameObject bulletMelee4 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+            bulletMelee4.GetComponent<Rigidbody2D>().velocity = newKnife3;
+
+        }
     }
 
 
@@ -460,6 +477,26 @@ public class PlayerController : MonoBehaviour
             bullet3.GetComponent<Rigidbody2D>().velocity = newBullet3;
 
         }
+
+        if (uiInventory.supremeGunAmount >4 )
+        {
+            GameObject top = Instantiate(bulletPrefab, bottomBullet, transform.rotation) as GameObject;
+            //  bulletControl = player.GetComponent<BulletControl>();
+            top.GetComponent<Rigidbody2D>().velocity = bulletDir;
+
+            GameObject bottom = Instantiate(bulletPrefab, topBullet, transform.rotation) as GameObject;
+            //  bulletControl = player.GetComponent<BulletControl>();
+            bottom.GetComponent<Rigidbody2D>().velocity = bulletDir;
+
+
+            GameObject bullet2 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+            bullet2.GetComponent<Rigidbody2D>().velocity = newBullet2;
+
+
+            GameObject bullet3 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+            bullet3.GetComponent<Rigidbody2D>().velocity = newBullet3;
+
+        }
     }
 
 
@@ -519,7 +556,7 @@ public class PlayerController : MonoBehaviour
             spray.GetComponent<Rigidbody2D>().velocity = sprayDir;
         }
 
-        if (uiInventory.sprayBottleAmount == 3)
+        if (uiInventory.sprayBottleAmount == 4)
         {
             SprayDelay = 0.2f;
             bulletPrefab.transform.localScale = new Vector3(2.5f, 2.5f, 0);
@@ -603,6 +640,12 @@ public class PlayerController : MonoBehaviour
             inlevel2 = false;
             inlevel3 = true;
             print("wefouiwjeaf");
+
+        }
+
+        if (collision.gameObject.tag == "Level3Exit")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         }
 

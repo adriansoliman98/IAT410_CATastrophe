@@ -23,6 +23,8 @@ TagManager:
   - secondBoss2
   - Level3BossPlate
   - Level3BossDoor
+  - thirdBoss
+  - Level3Exit
   layers:
   - Default
   - TransparentFX
