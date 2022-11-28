@@ -10,7 +10,7 @@ public class BossBullet : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("Destroy", 3f);
+        //Invoke("Destroy", 3f);
     }
     // Start is called before the first frame update
     void Start()
@@ -57,9 +57,10 @@ public class BossBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-
-        // Destroy(gameObject);
-
+       // if (collision.gameObject.tag == "room")
+       // {
+           // Destroy(gameObject);
+      //  }
         //  Destroy(gameObject);
     }
 }

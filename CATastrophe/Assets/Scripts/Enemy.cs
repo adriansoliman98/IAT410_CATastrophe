@@ -35,12 +35,27 @@ public class Enemy : MonoBehaviour
     Vector2 moveDirection;
 
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
         health = maxHealth;
         enemyhealthBar.SetHealth(health, maxHealth);
         target = GameObject.FindWithTag("Player").transform;
+        if (health == -1)
+        {
+            Destroy(this.gameObject);
+            // GetComponent<ItemSpawner>().Spawn();
+            Instantiate(particleScript, transform.position, Quaternion.identity);
+            if (dropItem == true)
+            {
 
+                GetComponent<WeaponWorldSpawner>().InstantiateLoot();
+            }
+        }
     }
 
     private void Update()
@@ -52,8 +67,8 @@ public class Enemy : MonoBehaviour
 
         dir.Normalize();
         movement = dir;
-        
 
+      //  print(moveDirection.x);
     }
 
     private void FixedUpdate()
@@ -85,13 +100,11 @@ public class Enemy : MonoBehaviour
 
     void ProcessInputs()
     {
-        //float moveX = Input.GetAxisRaw("Horizontal");
-        //float moveY = Input.GetAxisRaw("Vertical");
+       // float moveX2 = Input.GetAxisRaw("Horizontal");
+       // float moveY2 = Input.GetAxisRaw("Vertical");
 
-        //moveDirection = new Vector2(moveX, moveY).normalized;
-
+       // moveDirection = new Vector2(moveX2, moveY2).normalized;
         moveDirection = movement;
-
     }
 
     void DoAnimations()

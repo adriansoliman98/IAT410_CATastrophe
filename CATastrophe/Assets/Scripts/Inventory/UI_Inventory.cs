@@ -15,6 +15,7 @@ public class UI_Inventory : MonoBehaviour
     public int sprayBottleAmount;
     public int supremeGunAmount;
     public int minecraftBowAmount;
+    public int heartAmount;
     // public TextMeshProUGUI text;
 
     private void Awake()
@@ -98,6 +99,14 @@ public class UI_Inventory : MonoBehaviour
                 minecraftBowAmount = weapon.amount;
 
             }
+
+            if (weapon.weaponType == WeaponType.Heart)
+            {
+                heartAmount = weapon.amount;
+
+            }
+
+          
 
 
             x++;

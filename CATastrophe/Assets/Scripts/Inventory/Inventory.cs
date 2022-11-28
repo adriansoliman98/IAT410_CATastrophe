@@ -15,9 +15,9 @@ public class Inventory
 
 
         //for testing -> can delete after
-        AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.MinecraftBow, amount = 1 });
         AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.SupremeGun, amount = 1 });
         AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Knife, amount = 1 });
+        AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.SprayBottle, amount = 1 });
 
         Debug.Log(weaponList.Count);
 
@@ -41,7 +41,7 @@ public class Inventory
             {
                 weaponList.Add(weaponItem);
             }
-        } else{
+        } else {
             weaponList.Add(weaponItem);
         }
 

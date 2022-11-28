@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 public class OpenExit : MonoBehaviour
 
 {
-    public GameObject gameObject;
+    //public GameObject gameObject;
     
-    Enemy enemy;
+    public Enemy enemy;
     // Start is called before the first frame update
 
 
@@ -22,10 +22,22 @@ public class OpenExit : MonoBehaviour
     void Update()
     {
         enemy = gameObject.GetComponent<Enemy>();
-        if (enemy.bossDead == true)
+
+        if (gameObject.tag == "firstBoss")
+            if (enemy.bossDead == true)
         {
             transform.position = new Vector2(transform.position.x + 1, transform.position.y );
         }
-      //  print(enemy.bossDead);
+
+        if (gameObject.tag == "secondBoss1" && gameObject.tag == "secondBoss2")
+        {
+            if (enemy.bossDead == true)
+            {
+                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+            }
+
+           
+        }
+        //  print(enemy.bossDead);
     }
 }

@@ -17,6 +17,7 @@ public class WeaponAssets : MonoBehaviour
     public Sprite sprayBottleSprite;
     public Sprite minecraftBowSprite;
     public Sprite nothing;
+    public Sprite heartSprite;
 
 
 }

@@ -19,6 +19,10 @@ TagManager:
   - Level1Exit
   - Level2Exit
   - Level3Start
+  - secondBoss1
+  - secondBoss2
+  - Level3BossPlate
+  - Level3BossDoor
   layers:
   - Default
   - TransparentFX
@@ -32,7 +36,7 @@ TagManager:
   - Enemy
   - Item
   - BossBullet
-  - 
+  - Background
   - 
   - 
   - 

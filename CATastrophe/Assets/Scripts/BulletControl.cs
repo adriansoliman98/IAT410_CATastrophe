@@ -11,7 +11,8 @@ public class BulletControl : MonoBehaviour
     public float fireDelay;
     public float lifeTime ;
     public float bulletDamage;
-
+    public float bulletHealth;
+    [SerializeField] private UI_Inventory uiInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,8 @@ public class BulletControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+       
+
     }
 
     IEnumerator DeathDelay()
@@ -37,6 +39,7 @@ public class BulletControl : MonoBehaviour
 
             if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
             {
+
                 enemyComponent.TakeDamage(bulletDamage);
             Destroy(gameObject);
 

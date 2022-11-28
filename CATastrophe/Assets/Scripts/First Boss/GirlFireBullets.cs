@@ -30,7 +30,6 @@ public class GirlFireBullets : MonoBehaviour
 
         float angleStep = (endAngle - startAngle) / bulletsAmount;
         float angle = startAngle;
-
         
         for (int i = 0; i < bulletsAmount; i++)
         {
@@ -38,7 +37,7 @@ public class GirlFireBullets : MonoBehaviour
 
             float bulDirx = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
             float bulDiry = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
-
+           
             Vector3 bulMoveVector = new Vector3(bulDirx, bulDiry, 0f);
             Vector2 bulDir = (bulMoveVector - transform.position).normalized;
 

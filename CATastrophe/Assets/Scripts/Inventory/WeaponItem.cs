@@ -13,6 +13,7 @@ public class WeaponItem
         SprayBottle,
         MinecraftBow,
         Nothing,
+        Heart,
     }
 
 
@@ -30,6 +31,7 @@ public class WeaponItem
             case WeaponType.SprayBottle:     return WeaponAssets.Instance.sprayBottleSprite;
             case WeaponType.MinecraftBow:    return WeaponAssets.Instance.minecraftBowSprite;
             case WeaponType.Nothing:         return WeaponAssets.Instance.nothing;
+            case WeaponType.Heart:           return WeaponAssets.Instance.heartSprite;
 
         }
     }
@@ -39,9 +41,11 @@ public class WeaponItem
             default:
             case WeaponType.SupremeGun:
             case WeaponType.Knife:
-            case WeaponType.SprayBottle:              
+            case WeaponType.SprayBottle:
+            case WeaponType.Heart:
                 return true;
             case WeaponType.MinecraftBow:
+           
                 return false;
         }
     }

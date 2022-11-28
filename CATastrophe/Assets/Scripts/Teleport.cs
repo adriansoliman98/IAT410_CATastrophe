@@ -8,7 +8,8 @@ public class Teleport : MonoBehaviour
 
     private Transform destination;
 
-   
+    public Vector2 level2Spawn;
+    public bool inlevel2, inlevel3;
 
     public float distance = 5f;
 
@@ -35,7 +36,13 @@ public class Teleport : MonoBehaviour
             if (Vector2.Distance(transform.position,other.transform.position) > distance)
             {
                 other.transform.position = new Vector2 (destination.position.x, destination.position.y);
+
+                inlevel2 = true;
+                inlevel3 = false;
+                print("this is true");
             }
+
+           
 
         }
 
@@ -45,6 +52,8 @@ public class Teleport : MonoBehaviour
             if (Vector2.Distance(transform.position, other.transform.position) > distance)
             {
                 other.transform.position = new Vector2(destination.position.x, destination.position.y);
+                inlevel2 = false;
+                inlevel3 = true;
             }
 
         }
