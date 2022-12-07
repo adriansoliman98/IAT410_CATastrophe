@@ -9,7 +9,7 @@ public class BulletControl : MonoBehaviour
     public float bulletSpeed;
     private float lastFire;
     public float fireDelay;
-    public float lifeTime ;
+    public float lifeTime;
     public float bulletDamage;
     public float bulletHealth;
     [SerializeField] private UI_Inventory uiInventory;
@@ -23,7 +23,7 @@ public class BulletControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
 
     }
 
@@ -33,35 +33,69 @@ public class BulletControl : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void StopFire()
     {
-       
-
-            if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
-            {
-
-                enemyComponent.TakeDamage(bulletDamage);
-            Destroy(gameObject);
-
-        }
-
-        if (collision.gameObject.TryGetComponent<MouseAI>(out MouseAI mouseAIComponent))
-        {
-            mouseAIComponent.TakeDamage(bulletDamage);
-            Destroy(gameObject);
-
-        }
-
-        if (collision.gameObject.TryGetComponent<Furniture>(out Furniture furnitureComponent))
-            {
-                furnitureComponent.TakeDamage(bulletDamage);
-            Destroy(gameObject);
-        }
-
-
-
-      
         Destroy(gameObject);
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (gameObject.tag != "Flame")
+        {
+            if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+            {
+
+                  enemyComponent.TakeDamage(bulletDamage);
+                Destroy(gameObject);
+
+            }
+
+            if (collision.gameObject.TryGetComponent<MouseAI>(out MouseAI mouseAIComponent))
+            {
+                mouseAIComponent.TakeDamage(bulletDamage);
+                Destroy(gameObject);
+
+            }
+
+            if (collision.gameObject.TryGetComponent<Furniture>(out Furniture furnitureComponent))
+            {
+                furnitureComponent.TakeDamage(bulletDamage);
+                Destroy(gameObject);
+            }
+        }
+
+
+
+        //
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (gameObject.tag == "Flame")
+        {
+            if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+        {
+            
+
+                enemyComponent.TakeDamage(bulletDamage);
+            }
+
+        }
+    }
+
+    /*  public void OnTriggerEnter2D(Collision2D collision)
+      {
+          if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+          {
+              if (gameObject.tag == "Flame")
+              {
+
+                  enemyComponent.TakeDamage(bulletDamage);
+              }
+
+          }
+      }
+    */
 }

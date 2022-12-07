@@ -31,9 +31,10 @@ public class PlayerController : MonoBehaviour
     public GameObject player2;
     public GameObject bulletPrefab;
     private Vector2 moveDirection;
+    private Vector2 moveFire;
 
     public float moveSpeed;
-
+    int fireLimit = 1;
 
     public bool catgun = true;
     public bool bow = false;
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private float fireDelay;
     private float SprayDelay;
     public int Respawn;
-    public bool inlevel2, inlevel3;
+    public bool inlevel2, inlevel3, finallevel;
 
     public Animator userAnimator;
 
@@ -62,21 +63,18 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 level2start, level3start, levelRespawn;
 
+    private Vector3 flameBulletRight, flameBulletLeft, flameBulletUp, flameBulletDown;
     private Vector3 newBullet2, newBullet3, bulletDir, knifeDir, sprayDir, sprayDir2, topBullet, bottomBullet, bottomBulletVel;
-    private Vector3 topSpray, bottomSpray;
+    private Vector3 topSpray, bottomSpray, fireDir;
     private Vector3 newKnife, newKnife2, newKnife3;
     private Vector3 newSpray, newSpray2, newSpray3;
-    private Quaternion newBulletRotation;
+    private Quaternion newBulletRotation, sideBullet, upSprite, leftSprite, downSprite;
     private List<WeaponItem> weaponList;
     private WeaponItem weaponItem;
     public WeaponType weaponType;
     public int amount;
-    //called once at startup
-    private void Awake()
-    {
-        //   WeaponWorld.SpawnWeaponWorld(new Vector3(2,2), new WeaponItem { weaponType = WeaponItem.WeaponType.MinecraftBow, amount = 1 });
+     int startFire = 0;
 
-    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -118,43 +116,58 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DontDestroyOnLoad(uiInventory);
+      //  DontDestroyOnLoad(inventory);
         teleport = player.GetComponent<Teleport>();
         bulletControl = player.GetComponent<BulletControl>();
         weaponSwitch = player2.GetComponent<WeaponSwitch>();
         //  bulletControl.bulletSpeed = bulletSpeed;
         SetBulletPreFab(bulletPrefab);
-        //   fireDelay = GameController.FireRate;
-        //   speed = GameController.MoveSpeed;
-
-        print(transform.position.x);
-        print(transform.position.y);
+        
 
         float shootHor = Input.GetAxis("ShootHorizontal");
         float shootVert = Input.GetAxis("ShootVertical");
-        //   print(bulletSpeed);
-
+       
 
         if ((shootHor != 0 || shootVert != 0) && Time.time > lastFire + fireDelay)
         {
 
-            fireDelay = 0.1f;
+           // fireDelay = 0.1f;
             if (weaponSwitch.WeaponCash == true)
             {
-
+                fireDelay = 0.1f;
                 Shoot(shootHor, shootVert);
 
             }
-            if (weaponSwitch.WeaponArrow == true)
+            if (weaponSwitch.WeaponAir == true)
             {
                 fireDelay = SprayDelay;
-                Shoot3(shootHor, shootVert);
+                ShootAir(shootHor, shootVert);
 
             }
-            if (weaponSwitch.WeaponMelee == true)
+            if (weaponSwitch.WeaponEarth == true)
             {
                 //   lastFire = 0.5f;
                 fireDelay = 0.7f;
-                Shoot2(shootHor, shootVert);
+                ShootEarth(shootHor, shootVert);
+
+            }
+
+            if (weaponSwitch.WeaponFire == true)
+            {
+                //startFire = 1;
+                fireDelay = 0.1f;
+                ShootFlame(shootHor, shootVert);
+
+            }
+
+
+
+            if (weaponSwitch.WeaponWater == true)
+            {
+                //   lastFire = 0.5f;
+                fireDelay = 0.1f;
+                ShootWater(shootHor, shootVert);
 
             }
 
@@ -170,7 +183,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
+       // DontDestroyOnLoad(gameObject);
     }
     /// <summary>
     /// ANIMATIONS
@@ -283,9 +296,158 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void Shootfire(float x, float y)
+    {
+       /* userAnimator.SetTrigger("MeleeAttack");
+        userAnimator.SetFloat("BulletHorizontal", x);
+        userAnimator.SetFloat("BulletVertical", y);
+
+        moveFire = new Vector2(transform.position.x, transform.position.y);
+
+        fireDir = new Vector3(
+        (x < 0) ? Mathf.Floor(x) * 1 * 1 + moveDirection.x * 1 : Mathf.Ceil(x) * 1 + moveDirection.x * 1,
+        (y < 0) ? Mathf.Floor(y) * 1 * 1 + moveDirection.y * 1 : Mathf.Ceil(y) * 1 + moveDirection.y * 1,
+        0);
+
+        //  fireDir = new Vector3(
+        // (x < 0) ? Mathf.Floor(x) * 1 * 1 + transform.position.x * 1: Mathf.Ceil(x) * 1 + transform.position.x * 1,
+        // (y < 0) ? Mathf.Floor(y) * 1 * 1 + moveDirection.y * 1 : Mathf.Ceil(y) * 1 + moveDirection.y * 1,
+        // 0);
+
+        bulletControl = player.GetComponent<BulletControl>();
+        //if ((Input.GetKeyUp("up") && (Input.GetKeyUp("down")) && (Input.GetKeyUp("right")) && (Input.GetKeyUp("left"))))
+
+        if((Input.GetKey(KeyCode.UpArrow) && (Input.GetKey(KeyCode.DownArrow) &&
+            (Input.GetKey(KeyCode.RightArrow) && (Input.GetKey(KeyCode.LeftArrow) == false)))))
+        {
+            bulletControl.StopFire();
+            startFire = 0;
+        }
+        if (startFire == 1) {
+
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || (Input.GetKeyDown(KeyCode.DownArrow) ||
+            (Input.GetKeyDown(KeyCode.RightArrow) || (Input.GetKeyDown(KeyCode.LeftArrow) == false)))))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+
+                startFire = 0;
+            }
+        }
+       */
+    }
+
+    public void ShootFlame(float x, float y)
+    {
+        userAnimator.SetTrigger("MeleeAttack");
+        userAnimator.SetFloat("BulletHorizontal", x);
+        userAnimator.SetFloat("BulletVertical", y);
+
+    
+        flameBulletRight = new Vector3(transform.position.x + 5, transform.position.y);
+        flameBulletLeft = new Vector3(transform.position.x- 5, transform.position.y);
+        flameBulletUp = new Vector3(transform.position.x , transform.position.y + 5);
+        flameBulletDown = new Vector3(transform.position.x , transform.position.y - 5);
+
+        upSprite = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 90);
+        downSprite = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 270);
+        leftSprite = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 180);
+
+        fireDir = new Vector3(
+        (x < 0) ? Mathf.Floor(x) * 1 * 1.5f + moveDirection.x * 18 : Mathf.Ceil(x) * 1.5f + moveDirection.x * 18,
+        (y < 0) ? Mathf.Floor(y) * 1 * 1.5f + moveDirection.y * 18 : Mathf.Ceil(y) * 1.5f + moveDirection.y * 18,
+        0);
+
+       // bulletPrefab.transform.localScale = new Vector3(2, 2, 0);
+        bulletControl = player.GetComponent<BulletControl>();
 
 
-    public void Shoot2(float x, float y)
+        if (uiInventory.knifeAmount > 0)
+        {
+            if (Input.GetKey("right"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletRight, transform.rotation) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            if (Input.GetKey("up"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletUp, upSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            if (Input.GetKey("left"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletLeft, leftSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            if (Input.GetKey("down"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletDown, downSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+        }
+
+     
+    }
+
+    public void ShootWater(float x, float y)
+    {
+        userAnimator.SetTrigger("MeleeAttack");
+        userAnimator.SetFloat("BulletHorizontal", x);
+        userAnimator.SetFloat("BulletVertical", y);
+
+       
+        flameBulletRight = new Vector3(transform.position.x + 5, transform.position.y);
+        flameBulletLeft = new Vector3(transform.position.x - 5, transform.position.y);
+        flameBulletUp = new Vector3(transform.position.x, transform.position.y + 5);
+        flameBulletDown = new Vector3(transform.position.x, transform.position.y - 5);
+
+        upSprite = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 90);
+        downSprite = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 270);
+        leftSprite = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 180);
+
+        fireDir = new Vector3(
+        (x < 0) ? Mathf.Floor(x) * 1 * 1.5f + moveDirection.x * 18 : Mathf.Ceil(x) * 1.5f + moveDirection.x * 18,
+        (y < 0) ? Mathf.Floor(y) * 1 * 1.5f + moveDirection.y * 18 : Mathf.Ceil(y) * 1.5f + moveDirection.y * 18,
+        0);
+
+        // bulletPrefab.transform.localScale = new Vector3(2, 2, 0);
+        bulletControl = player.GetComponent<BulletControl>();
+
+
+        if (uiInventory.knifeAmount > 0)
+        {
+            if (Input.GetKey("right"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletRight, transform.rotation) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            if (Input.GetKey("up"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletUp, upSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            if (Input.GetKey("left"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletLeft, leftSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            if (Input.GetKey("down"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletDown, downSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+        }
+
+
+    }
+
+    public void ShootEarth(float x, float y)
     {
         userAnimator.SetTrigger("MeleeAttack");
         userAnimator.SetFloat("BulletHorizontal", x);
@@ -301,7 +463,7 @@ public class PlayerController : MonoBehaviour
         (y < 0) ? Mathf.Floor(y) * 1 * bulletSpeed2 + moveDirection.y * 17 : Mathf.Ceil(y) * bulletSpeed2 + moveDirection.y * 17,
         0);
 
-        bulletPrefab.transform.localScale = new Vector3(2, 2, 0);
+        bulletPrefab.transform.localScale = new Vector3(0.3f, 0.3f, 0);
         bulletControl = player.GetComponent<BulletControl>();
 
 
@@ -402,8 +564,9 @@ public class PlayerController : MonoBehaviour
         newBulletRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 50);
         newBullet2 = Quaternion.Euler(0, 0, 30f) * bulletDir;
         newBullet3 = Quaternion.Euler(0, 0, -30f) * bulletDir;
+       // sideBullet =  Quaternion.Euler(30f, 0, 0) * bulletDir;
         bottomBulletVel = Quaternion.Euler(0, 0, 0) * bulletDir;
-
+        sideBullet = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 90);
 
         bulletControl = player.GetComponent<BulletControl>();
 
@@ -416,10 +579,26 @@ public class PlayerController : MonoBehaviour
         bulletPrefab.transform.localScale = new Vector3(0.2f, 0.2f, 0);
         if (uiInventory.supremeGunAmount == 1)
         {
+           
+           
 
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-            //  bulletControl = player.GetComponent<BulletControl>();
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletDir;
+            if (Input.GetKey("down") || Input.GetKey("up"))
+            {
+
+                GameObject bullet2 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                bullet2.GetComponent<Rigidbody2D>().velocity = bulletDir;
+            }
+
+           else if (Input.GetKey("right") || Input.GetKey("left"))
+            {
+
+                GameObject bullet = Instantiate(bulletPrefab, transform.position, sideBullet) as GameObject;
+                bullet.GetComponent<Rigidbody2D>().velocity = bulletDir;
+            }
+            
+         
+           
 
 
 
@@ -428,54 +607,108 @@ public class PlayerController : MonoBehaviour
         if (uiInventory.supremeGunAmount == 2)
         {
 
+            if (Input.GetKey("down") || Input.GetKey("up"))
+            {
+                GameObject top = Instantiate(bulletPrefab, bottomBullet, sideBullet) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                top.GetComponent<Rigidbody2D>().velocity = bulletDir;
 
-            GameObject top = Instantiate(bulletPrefab, bottomBullet, transform.rotation) as GameObject;
-            //  bulletControl = player.GetComponent<BulletControl>();
-            top.GetComponent<Rigidbody2D>().velocity = bulletDir;
-
-            GameObject bottom = Instantiate(bulletPrefab, topBullet, transform.rotation) as GameObject;
-            //  bulletControl = player.GetComponent<BulletControl>();
-            bottom.GetComponent<Rigidbody2D>().velocity = bulletDir;
+                GameObject bottom = Instantiate(bulletPrefab, topBullet, sideBullet) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                bottom.GetComponent<Rigidbody2D>().velocity = bulletDir;
+            }
 
 
+           else  if (Input.GetKey("down") || Input.GetKey("up"))
+            {
+                GameObject top = Instantiate(bulletPrefab, bottomBullet, transform.rotation) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                top.GetComponent<Rigidbody2D>().velocity = bulletDir;
+
+                GameObject bottom = Instantiate(bulletPrefab, topBullet, transform.rotation) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                bottom.GetComponent<Rigidbody2D>().velocity = bulletDir;
+
+            }
 
         }
 
         if (uiInventory.supremeGunAmount == 3)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-            //  bulletControl = player.GetComponent<BulletControl>();
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletDir;
+
+            if (Input.GetKey("down") || Input.GetKey("up"))
+            {
+                GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                bullet.GetComponent<Rigidbody2D>().velocity = bulletDir;
 
 
-            GameObject bullet2 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-            bullet2.GetComponent<Rigidbody2D>().velocity = newBullet2;
+                GameObject bullet2 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+                bullet2.GetComponent<Rigidbody2D>().velocity = newBullet2;
 
 
-            GameObject bullet3 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-            bullet3.GetComponent<Rigidbody2D>().velocity = newBullet3;
+                GameObject bullet3 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+                bullet3.GetComponent<Rigidbody2D>().velocity = newBullet3;
+            }
 
+            else if (Input.GetKey("right") || Input.GetKey("left"))
+            {
+                GameObject bullet = Instantiate(bulletPrefab, transform.position, sideBullet) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                bullet.GetComponent<Rigidbody2D>().velocity = bulletDir;
+
+
+                GameObject bullet2 = Instantiate(bulletPrefab, transform.position, sideBullet) as GameObject;
+                bullet2.GetComponent<Rigidbody2D>().velocity = newBullet2;
+
+
+                GameObject bullet3 = Instantiate(bulletPrefab, transform.position, sideBullet) as GameObject;
+                bullet3.GetComponent<Rigidbody2D>().velocity = newBullet3;
+            }
         }
 
 
         if (uiInventory.supremeGunAmount == 4)
         {
-            GameObject top = Instantiate(bulletPrefab, bottomBullet, transform.rotation) as GameObject;
-            //  bulletControl = player.GetComponent<BulletControl>();
-            top.GetComponent<Rigidbody2D>().velocity = bulletDir;
 
-            GameObject bottom = Instantiate(bulletPrefab, topBullet, transform.rotation) as GameObject;
-            //  bulletControl = player.GetComponent<BulletControl>();
-            bottom.GetComponent<Rigidbody2D>().velocity = bulletDir;
+            if (Input.GetKey("down") || Input.GetKey("up"))
+            {
+                GameObject top = Instantiate(bulletPrefab, bottomBullet, transform.rotation) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                top.GetComponent<Rigidbody2D>().velocity = bulletDir;
+
+                GameObject bottom = Instantiate(bulletPrefab, topBullet, transform.rotation) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                bottom.GetComponent<Rigidbody2D>().velocity = bulletDir;
 
 
-            GameObject bullet2 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-            bullet2.GetComponent<Rigidbody2D>().velocity = newBullet2;
+                GameObject bullet2 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+                bullet2.GetComponent<Rigidbody2D>().velocity = newBullet2;
 
 
-            GameObject bullet3 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-            bullet3.GetComponent<Rigidbody2D>().velocity = newBullet3;
+                GameObject bullet3 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+                bullet3.GetComponent<Rigidbody2D>().velocity = newBullet3;
 
+            }
+            else if (Input.GetKey("right") || Input.GetKey("left"))
+            {
+
+                GameObject top = Instantiate(bulletPrefab, bottomBullet, sideBullet) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                top.GetComponent<Rigidbody2D>().velocity = bulletDir;
+
+                GameObject bottom = Instantiate(bulletPrefab, topBullet, sideBullet) as GameObject;
+                //  bulletControl = player.GetComponent<BulletControl>();
+                bottom.GetComponent<Rigidbody2D>().velocity = bulletDir;
+
+
+                GameObject bullet2 = Instantiate(bulletPrefab, transform.position, sideBullet) as GameObject;
+                bullet2.GetComponent<Rigidbody2D>().velocity = newBullet2;
+
+
+                GameObject bullet3 = Instantiate(bulletPrefab, transform.position, sideBullet) as GameObject;
+                bullet3.GetComponent<Rigidbody2D>().velocity = newBullet3;
+            }
         }
 
         if (uiInventory.supremeGunAmount >4 )
@@ -501,7 +734,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    public void Shoot3(float x, float y)
+    public void ShootAir(float x, float y)
     {
         userAnimator.SetTrigger("BottleAttack");
         userAnimator.SetFloat("BulletHorizontal", x);
@@ -645,7 +878,10 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "Level3Exit")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            inlevel2 = false;
+            inlevel3 = false;
+           finallevel = true;
+            print("collision");
 
         }
 

@@ -5,8 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-public void PlayGame()
+
+    private void Start()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
+
+    private void Update()
+    {
+      
+    }
+
+    public void PlayGame()
+    {      
+        //   Scene currentScene = SceneManager.GetActiveScene();
+       
+        //  string sceneName = currentScene.name;
+        //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+       
+            SceneManager.UnloadSceneAsync(4);
+     
+       
+    }
+
+    public void Skip3rdCutscene()
+    {
+        SceneManager.UnloadSceneAsync(5);
+    }
+
+public void Skip4thCutscene()
+{
+    SceneManager.UnloadSceneAsync(6);
+}
 }

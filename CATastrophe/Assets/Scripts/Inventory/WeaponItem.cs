@@ -9,9 +9,9 @@ public class WeaponItem
     public enum WeaponType
     {
         SupremeGun,
-        Knife,
+        Flamethrower,
         SprayBottle,
-        MinecraftBow,
+        Stick,
         Nothing,
         Heart,
     }
@@ -27,9 +27,9 @@ public class WeaponItem
         {
             default:
             case WeaponType.SupremeGun:      return WeaponAssets.Instance.supremeGunSprite;
-            case WeaponType.Knife:           return WeaponAssets.Instance.knifeSprite;
+            case WeaponType.Flamethrower:    return WeaponAssets.Instance.flamethrowerSprite;
             case WeaponType.SprayBottle:     return WeaponAssets.Instance.sprayBottleSprite;
-            case WeaponType.MinecraftBow:    return WeaponAssets.Instance.minecraftBowSprite;
+            case WeaponType.Stick:           return WeaponAssets.Instance.stickSprite;
             case WeaponType.Nothing:         return WeaponAssets.Instance.nothing;
             case WeaponType.Heart:           return WeaponAssets.Instance.heartSprite;
 
@@ -40,11 +40,12 @@ public class WeaponItem
         switch (weaponType) {
             default:
             case WeaponType.SupremeGun:
-            case WeaponType.Knife:
+            case WeaponType.Flamethrower:
             case WeaponType.SprayBottle:
-            case WeaponType.Heart:
+          
+            case WeaponType.Stick:
                 return true;
-            case WeaponType.MinecraftBow:
+          
            
                 return false;
         }

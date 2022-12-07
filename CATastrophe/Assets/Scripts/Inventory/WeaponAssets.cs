@@ -13,9 +13,9 @@ public class WeaponAssets : MonoBehaviour
     public Transform pfWeaponWorld;
 
     public Sprite supremeGunSprite;
-    public Sprite knifeSprite;
+    public Sprite flamethrowerSprite;
     public Sprite sprayBottleSprite;
-    public Sprite minecraftBowSprite;
+    public Sprite stickSprite;
     public Sprite nothing;
     public Sprite heartSprite;
 

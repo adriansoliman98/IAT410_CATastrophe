@@ -25,6 +25,12 @@ TagManager:
   - Level3BossDoor
   - thirdBoss
   - Level3Exit
+  - BossStart
+  - IntroCutscene
+  - 2ndLevelCutscene
+  - 3rdLevelCutscene
+  - 4thLevelCutscene
+  - Flame
   layers:
   - Default
   - TransparentFX
@@ -39,7 +45,7 @@ TagManager:
   - Item
   - BossBullet
   - Background
-  - 
+  - Flame
   - 
   - 
   - 

@@ -57,10 +57,6 @@ public class BossBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-       // if (collision.gameObject.tag == "room")
-       // {
-           // Destroy(gameObject);
-      //  }
-        //  Destroy(gameObject);
+     
     }
 }

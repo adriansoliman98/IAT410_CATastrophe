@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 518842233032a894197944afef3dd8e3
@@ -17,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Beta Code.unity
     guid: 41e75dad2924e9f43b1aadded3cba0c7
+  - enabled: 1
+    path: Assets/Scenes/New Folder/Gold Code.unity
+    guid: 309c8569206c12a45804963bacf64904
+  - enabled: 1
+    path: Assets/Scenes/New Folder/2nd Cutscene.unity
+    guid: 1b9c8d6a6eadd404983c921cb82ceea6
+  - enabled: 1
+    path: Assets/Scenes/New Folder/3rdCutscene.unity
+    guid: 2b5f65bd8c501164eaf39822a8ec9b3b
+  - enabled: 1
+    path: Assets/Scenes/New Folder/4th Cutscene.unity
+    guid: 6607eaf69c0f89440adf5d01f3e55d49
   m_configObjects: {}

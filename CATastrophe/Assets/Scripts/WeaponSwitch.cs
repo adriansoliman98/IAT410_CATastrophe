@@ -6,13 +6,17 @@ using UnityEngine;
 public class WeaponSwitch : MonoBehaviour
 {
     [SteralizedField] public GameObject cashgun;
-    [SteralizedField] public GameObject arrow;
-    [SteralizedField] public GameObject melee;
+    [SteralizedField] public GameObject air;
+    [SteralizedField] public GameObject earth;
+    [SteralizedField] public GameObject fire;
+    [SteralizedField] public GameObject water;
     [SteralizedField] private float currentGun;
 
     public bool WeaponCash = true;
-    public bool WeaponArrow = false;
-    public bool WeaponMelee = false;
+    public bool WeaponAir = false;
+    public bool WeaponEarth = false;
+    public bool WeaponWater = false;
+    public bool WeaponFire = false;
 
     PlayerController playerController;
 
@@ -32,8 +36,10 @@ public class WeaponSwitch : MonoBehaviour
     {
 
         WeaponCash = true;
-        WeaponArrow = false;
-        WeaponMelee = false;
+        WeaponAir = false;
+        WeaponEarth = false;
+        WeaponFire = false;
+        WeaponWater = false;
         currentGun = 1;
         SetWeapon(1);
     }
@@ -49,8 +55,10 @@ public class WeaponSwitch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             WeaponCash = true;
-            WeaponArrow = false;
-            WeaponMelee = false;
+            WeaponAir = false;
+            WeaponEarth = false;
+            WeaponFire = false;
+            WeaponWater = false;
             currentGun = 1;
             SetWeapon(1);
 
@@ -62,10 +70,12 @@ public class WeaponSwitch : MonoBehaviour
             // if (bowInventory == true)
             {
                 WeaponCash = false;
-                WeaponArrow = false;
-                WeaponMelee = true;
+                WeaponAir = true;
+                WeaponEarth = false;
+                WeaponFire = false;
+                WeaponWater = false;
                 currentGun = 2;
-                print(WeaponMelee);
+              
                 SetWeapon(2);
             }
 
@@ -78,11 +88,47 @@ public class WeaponSwitch : MonoBehaviour
             //   if (bowInventory == true)
             {
                 WeaponCash = false;
-                WeaponMelee = false;
-                WeaponArrow = true;
+                WeaponAir = false;
+                WeaponEarth = true;
+                WeaponFire = false;
+                WeaponWater = false;
                 currentGun = 3;
 
                 SetWeapon(3);
+            }
+
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+
+            //   if (bowInventory == true)
+            {
+                WeaponCash = false;
+                WeaponAir = false;
+                WeaponEarth = false;
+                WeaponFire = true;
+                WeaponWater = false;
+                currentGun = 4;
+
+                SetWeapon(4);
+            }
+
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+
+            //   if (bowInventory == true)
+            {
+                WeaponCash = false;
+                WeaponAir = false;
+                WeaponEarth = false;
+                WeaponFire = false;
+                WeaponWater = true;
+                currentGun = 5;
+
+                SetWeapon(5);
             }
 
 
@@ -113,12 +159,22 @@ public class WeaponSwitch : MonoBehaviour
 
                 break;
             case 2:
-                playerController.SetBulletPreFab(melee);
+                playerController.SetBulletPreFab(air);
 
                 break;
 
             case 3:
-                playerController.SetBulletPreFab(arrow);
+                playerController.SetBulletPreFab(earth);
+
+                break;
+
+            case 4:
+                playerController.SetBulletPreFab(fire);
+
+                break;
+
+            case 5:
+                playerController.SetBulletPreFab(water);
 
                 break;
 

@@ -26,6 +26,16 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
+     void Update()
+    {
+        DontDestroyOnLoad(weaponSlotContainer);
+        DontDestroyOnLoad(weaponSlotTemplate);
+        DontDestroyOnLoad(weaponSlotTemplate.gameObject);
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(inventory);
+    }
+
     public void SetInventory(Inventory inv)
     {
         this.inventory = inv;
@@ -78,7 +88,7 @@ public class UI_Inventory : MonoBehaviour
           //  print(weapon.weaponType);
 
 
-            if (weapon.weaponType == WeaponType.Knife)
+            if (weapon.weaponType == WeaponType.Flamethrower)
             {
                 knifeAmount = weapon.amount ;
                 
@@ -94,7 +104,7 @@ public class UI_Inventory : MonoBehaviour
                 sprayBottleAmount = weapon.amount;
 
             }
-            if (weapon.weaponType == WeaponType.MinecraftBow)
+            if (weapon.weaponType == WeaponType.Stick)
             {
                 minecraftBowAmount = weapon.amount;
 
