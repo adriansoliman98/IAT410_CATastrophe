@@ -135,18 +135,21 @@ public class PlayerController : MonoBehaviour
            // fireDelay = 0.1f;
             if (weaponSwitch.WeaponCash == true)
             {
+                userAnimator.SetTrigger("MoneyAttack");
                 fireDelay = 0.1f;
                 Shoot(shootHor, shootVert);
 
             }
             if (weaponSwitch.WeaponAir == true)
             {
+                userAnimator.SetTrigger("AirAttack");
                 fireDelay = SprayDelay;
                 ShootAir(shootHor, shootVert);
 
             }
             if (weaponSwitch.WeaponEarth == true)
             {
+                userAnimator.SetTrigger("EarthAttack");
                 //   lastFire = 0.5f;
                 fireDelay = 0.7f;
                 ShootEarth(shootHor, shootVert);
@@ -155,6 +158,7 @@ public class PlayerController : MonoBehaviour
 
             if (weaponSwitch.WeaponFire == true)
             {
+                userAnimator.SetTrigger("FireAttack");
                 //startFire = 1;
                 fireDelay = 0.1f;
                 ShootFlame(shootHor, shootVert);
@@ -165,6 +169,7 @@ public class PlayerController : MonoBehaviour
 
             if (weaponSwitch.WeaponWater == true)
             {
+                userAnimator.SetTrigger("WaterAttack");
                 //   lastFire = 0.5f;
                 fireDelay = 0.1f;
                 ShootWater(shootHor, shootVert);
@@ -206,6 +211,8 @@ public class PlayerController : MonoBehaviour
         userAnimator.SetFloat("Horizontal", moveDirection.x);
         userAnimator.SetFloat("Vertical", moveDirection.y);
         userAnimator.SetFloat("Speed", moveDirection.sqrMagnitude);
+
+
 
     }
 
