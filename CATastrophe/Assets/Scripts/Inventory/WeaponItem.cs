@@ -12,6 +12,7 @@ public class WeaponItem
         Flamethrower,
         SprayBottle,
         Stick,
+        Air,
         Nothing,
         Heart,
     }
@@ -30,6 +31,7 @@ public class WeaponItem
             case WeaponType.Flamethrower:    return WeaponAssets.Instance.flamethrowerSprite;
             case WeaponType.SprayBottle:     return WeaponAssets.Instance.sprayBottleSprite;
             case WeaponType.Stick:           return WeaponAssets.Instance.stickSprite;
+            case WeaponType.Air:             return WeaponAssets.Instance.airSprite;
             case WeaponType.Nothing:         return WeaponAssets.Instance.nothing;
             case WeaponType.Heart:           return WeaponAssets.Instance.heartSprite;
 
@@ -42,7 +44,7 @@ public class WeaponItem
             case WeaponType.SupremeGun:
             case WeaponType.Flamethrower:
             case WeaponType.SprayBottle:
-          
+            case WeaponType.Air:
             case WeaponType.Stick:
                 return true;
           

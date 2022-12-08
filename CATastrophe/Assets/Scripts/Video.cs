@@ -39,28 +39,28 @@ public class Video : MonoBehaviour
         {
             if (video.tag == "3rdLevelCutscene")
             {
-                SceneManager.UnloadSceneAsync(5);
+                SceneManager.UnloadSceneAsync(4);
             }
             if (video.tag == "4thLevelCutscene")
             {
-                SceneManager.UnloadSceneAsync(6);
+                SceneManager.UnloadSceneAsync(5);
             }
             if (video.tag == "2ndLevelCutscene")
             {
-                SceneManager.UnloadSceneAsync(4);
+                SceneManager.UnloadSceneAsync(3);
             }
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         //  print(teleport.level2Cutscene);
         if (this.gameObject.tag == "IntroCutscene")
         {
-            timer -= Time.deltaTime;
+           // timer -= Time.deltaTime;
 
-            if (timer <= 0)
-            {
+           // if (timer <= 0)
+          //  {
                 //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                SceneManager.UnloadSceneAsync(4);
-            }
+           //     SceneManager.UnloadSceneAsync(4);
+          //  }
         }
 
         if (this.gameObject.tag == "2ndLevelCutscene")

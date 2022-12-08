@@ -23,18 +23,18 @@ public class MainMenu : MonoBehaviour
         //  string sceneName = currentScene.name;
         //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
        
-            SceneManager.UnloadSceneAsync(4);
+            SceneManager.UnloadSceneAsync(3);
      
        
     }
 
     public void Skip3rdCutscene()
     {
-        SceneManager.UnloadSceneAsync(5);
+        SceneManager.UnloadSceneAsync(4);
     }
 
 public void Skip4thCutscene()
 {
-    SceneManager.UnloadSceneAsync(6);
+    SceneManager.UnloadSceneAsync(5);
 }
 }

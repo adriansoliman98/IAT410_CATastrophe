@@ -31,6 +31,10 @@ TagManager:
   - 3rdLevelCutscene
   - 4thLevelCutscene
   - Flame
+  - WaterPlate
+  - FirePlate
+  - EarthPlate
+  - FinalExit
   layers:
   - Default
   - TransparentFX
@@ -46,7 +50,7 @@ TagManager:
   - BossBullet
   - Background
   - Flame
-  - 
+  - Post
   - 
   - 
   - 

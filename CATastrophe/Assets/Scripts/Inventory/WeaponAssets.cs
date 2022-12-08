@@ -16,6 +16,7 @@ public class WeaponAssets : MonoBehaviour
     public Sprite flamethrowerSprite;
     public Sprite sprayBottleSprite;
     public Sprite stickSprite;
+    public Sprite airSprite;
     public Sprite nothing;
     public Sprite heartSprite;
 

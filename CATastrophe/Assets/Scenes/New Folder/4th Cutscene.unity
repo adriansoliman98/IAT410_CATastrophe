@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 253252705}
   m_Layer: 0
   m_Name: Video Player
-  m_TagString: Untagged
+  m_TagString: 4thLevelCutscene
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081503f4d6529d849b417b5fcd295bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 5
+  timer: 9
   timeToStop: 0
 --- !u!328 &253252706
 VideoPlayer:
@@ -213,7 +213,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253252704}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: d85310b9de4582c41a00c059da9a31db, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: d04a22d384e0c7d42b074bd0382e920f, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}

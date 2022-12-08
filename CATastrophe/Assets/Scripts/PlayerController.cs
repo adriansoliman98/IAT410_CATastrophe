@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     BulletControl bulletControl;
     WeaponSwitch weaponSwitch;
     EnemyAI enemyAI;
+    Enemy enemy;
     public Teleport teleport;
     public GameObject player;
     public GameObject player2;
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     public float bulletSpeed, bulletSpeed4;
     public float bulletSpeed2, bulletSpeed3;
+    public float airSpeed;
     public float lastFire;
     private float fireDelay;
     private float SprayDelay;
@@ -104,24 +106,20 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        bulletControl = player.GetComponent<BulletControl>();
-        
-
+        bulletControl = player.GetComponent<BulletControl>();      
         weaponSwitch = player2.GetComponent<WeaponSwitch>();
-
-        enemyAI = player2.GetComponent<EnemyAI>();
+        enemy = player.GetComponent<Enemy>();
         teleport = player.GetComponent<Teleport>();
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
-        DontDestroyOnLoad(uiInventory);
-      //  DontDestroyOnLoad(inventory);
+    
         teleport = player.GetComponent<Teleport>();
         bulletControl = player.GetComponent<BulletControl>();
         weaponSwitch = player2.GetComponent<WeaponSwitch>();
-        //  bulletControl.bulletSpeed = bulletSpeed;
+    
         SetBulletPreFab(bulletPrefab);
         
 
@@ -151,7 +149,7 @@ public class PlayerController : MonoBehaviour
             {
                 userAnimator.SetTrigger("EarthAttack");
                 //   lastFire = 0.5f;
-                fireDelay = 0.7f;
+                fireDelay = 0.2f;
                 ShootEarth(shootHor, shootVert);
 
             }
@@ -369,34 +367,93 @@ public class PlayerController : MonoBehaviour
         bulletControl = player.GetComponent<BulletControl>();
 
 
-        if (uiInventory.knifeAmount > 0)
+        if (uiInventory.fireAmount == 1)
         {
+            bulletPrefab.transform.localScale = new Vector3(0.5f, 0.5f, 0);
             if (Input.GetKey("right"))
             {
                 GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletRight, transform.rotation) as GameObject;
                 bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
             }
 
-            if (Input.GetKey("up"))
+            else if (Input.GetKey("up"))
             {
                 GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletUp, upSprite) as GameObject;
                 bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
             }
 
-            if (Input.GetKey("left"))
+            else if (Input.GetKey("left"))
             {
                 GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletLeft, leftSprite) as GameObject;
                 bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
             }
 
-            if (Input.GetKey("down"))
+            else if (Input.GetKey("down"))
             {
                 GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletDown, downSprite) as GameObject;
                 bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
             }
         }
 
-     
+        if (uiInventory.fireAmount == 2)
+        {
+            bulletPrefab.transform.localScale = new Vector3(2, 2, 0);
+
+            if (Input.GetKey("right"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletRight, transform.rotation) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("up"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletUp, upSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if(Input.GetKey("left"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletLeft, leftSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+          else if (Input.GetKey("down"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletDown, downSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+        }
+
+        if (uiInventory.fireAmount == 3)
+        {
+            bulletPrefab.transform.localScale = new Vector3(4, 4, 0);
+
+            if (Input.GetKey("right"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletRight, transform.rotation) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("up"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletUp, upSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("left"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletLeft, leftSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("down"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletDown, downSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+        }
+
+
     }
 
     public void ShootWater(float x, float y)
@@ -422,9 +479,9 @@ public class PlayerController : MonoBehaviour
 
         // bulletPrefab.transform.localScale = new Vector3(2, 2, 0);
         bulletControl = player.GetComponent<BulletControl>();
+        bulletPrefab.transform.localScale = new Vector3(1, 1, 0);
 
-
-        if (uiInventory.knifeAmount > 0)
+        if (uiInventory.waterAmount == 1)
         {
             if (Input.GetKey("right"))
             {
@@ -432,24 +489,81 @@ public class PlayerController : MonoBehaviour
                 bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
             }
 
-            if (Input.GetKey("up"))
+            else if (Input.GetKey("up"))
             {
                 GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletUp, upSprite) as GameObject;
                 bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
             }
 
-            if (Input.GetKey("left"))
+            else if (Input.GetKey("left"))
             {
                 GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletLeft, leftSprite) as GameObject;
                 bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
             }
 
-            if (Input.GetKey("down"))
+            else if (Input.GetKey("down"))
             {
                 GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletDown, downSprite) as GameObject;
                 bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
             }
         }
+
+        if (uiInventory.waterAmount == 2)
+        {
+            bulletPrefab.transform.localScale = new Vector3(1.7f, 1.5f, 0);
+            if (Input.GetKey("right"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletRight, transform.rotation) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("up"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletUp, upSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("left"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletLeft, leftSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("down"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletDown, downSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+        }
+
+        if (uiInventory.waterAmount == 3)
+        {
+            bulletPrefab.transform.localScale = new Vector3(2.5f, 2f, 0);
+            if (Input.GetKey("right"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletRight, transform.rotation) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("up"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletUp, upSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("left"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletLeft, leftSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+
+            else if (Input.GetKey("down"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletDown, downSprite) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = fireDir;
+            }
+        }
+
 
 
     }
@@ -460,39 +574,41 @@ public class PlayerController : MonoBehaviour
         userAnimator.SetFloat("BulletHorizontal", x);
         userAnimator.SetFloat("BulletVertical", y);
 
+        topBullet = new Vector3(transform.position.x + 1, transform.position.y + 1);
+        bottomBullet = new Vector3(transform.position.x - 1, transform.position.y - 1);
 
         newKnife = Quaternion.Euler(0, 0, 180f) * knifeDir;
         newKnife2 = Quaternion.Euler(0, 0, 90f) * knifeDir;
         newKnife3 = Quaternion.Euler(0, 0, 270f) * knifeDir;
 
         knifeDir = new Vector3(
-        (x < 0) ? Mathf.Floor(x) * 1 * bulletSpeed2 + moveDirection.x * 17 : Mathf.Ceil(x) * bulletSpeed2 + moveDirection.x * 17,
-        (y < 0) ? Mathf.Floor(y) * 1 * bulletSpeed2 + moveDirection.y * 17 : Mathf.Ceil(y) * bulletSpeed2 + moveDirection.y * 17,
+        (x < 0) ? Mathf.Floor(x) * 1 * bulletSpeed2 + moveDirection.x * 13 : Mathf.Ceil(x) * bulletSpeed2 + moveDirection.x * 13,
+        (y < 0) ? Mathf.Floor(y) * 1 * bulletSpeed2 + moveDirection.y * 13 : Mathf.Ceil(y) * bulletSpeed2 + moveDirection.y * 13,
         0);
 
         bulletPrefab.transform.localScale = new Vector3(0.3f, 0.3f, 0);
         bulletControl = player.GetComponent<BulletControl>();
 
 
-        if (uiInventory.knifeAmount == 1)
+        if (uiInventory.earthAmount == 1)
         {
             GameObject bulletMelee = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
             bulletMelee.GetComponent<Rigidbody2D>().velocity = knifeDir;
 
         }
 
-        if (uiInventory.knifeAmount == 2)
+        if (uiInventory.earthAmount == 2)
         {
             //   bulletPrefab.transform.localScale = new Vector3(13, 13, 0);
-            GameObject bulletMelee = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+            GameObject bulletMelee = Instantiate(bulletPrefab, topBullet, transform.rotation) as GameObject;
             bulletMelee.GetComponent<Rigidbody2D>().velocity = knifeDir;
 
-            GameObject bulletMelee2 = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-            bulletMelee2.GetComponent<Rigidbody2D>().velocity = newKnife;
+            GameObject bulletMelee2 = Instantiate(bulletPrefab, bottomBullet, transform.rotation) as GameObject;
+            bulletMelee2.GetComponent<Rigidbody2D>().velocity = knifeDir;
 
         }
 
-        if (uiInventory.knifeAmount == 3)
+        if (uiInventory.earthAmount == 3)
         {
             //   bulletPrefab.transform.localScale = new Vector3(13, 13, 0);
             GameObject bulletMelee = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
@@ -509,7 +625,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (uiInventory.knifeAmount > 3)
+        if (uiInventory.earthAmount > 3)
         {
             //   bulletPrefab.transform.localScale = new Vector3(13, 13, 0);
             GameObject bulletMelee = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
@@ -760,24 +876,25 @@ public class PlayerController : MonoBehaviour
 
 
         sprayDir = new Vector3(
-       (x < 0) ? Mathf.Floor(x) * 1 * bulletSpeed3 + moveDirection.x * 13 : Mathf.Ceil(x) * bulletSpeed3 + moveDirection.x * 13,
-        (y < 0) ? Mathf.Floor(y) * 1 * bulletSpeed3 + moveDirection.y * 13 : Mathf.Ceil(y) * bulletSpeed3 + moveDirection.y * 13,
+       (x < 0) ? Mathf.Floor(x) * 1 * airSpeed + moveDirection.x * 17 : Mathf.Ceil(x) * airSpeed + moveDirection.x * 17,
+        (y < 0) ? Mathf.Floor(y) * 1 * airSpeed + moveDirection.y * 17 : Mathf.Ceil(y) * airSpeed + moveDirection.y * 17,
         0);
 
         sprayDir2 = new Vector3(
-       (x < 0) ? Mathf.Floor(x) * 1 * bulletSpeed4 + moveDirection.x * 13 : Mathf.Ceil(x) * bulletSpeed4 + moveDirection.x * 13,
-        (y < 0) ? Mathf.Floor(y) * 1 * bulletSpeed4 + moveDirection.y * 13 : Mathf.Ceil(y) * bulletSpeed4 + moveDirection.y * 13,
+       (x < 0) ? Mathf.Floor(x) * 1 * bulletSpeed4 + moveDirection.x * 17 : Mathf.Ceil(x) * bulletSpeed4 + moveDirection.x * 17,
+        (y < 0) ? Mathf.Floor(y) * 1 * bulletSpeed4 + moveDirection.y * 17 : Mathf.Ceil(y) * bulletSpeed4 + moveDirection.y * 17,
         0);
 
-        if (uiInventory.sprayBottleAmount == 1)
+        if (uiInventory.airAmount == 1)
         {
             SprayDelay = 0.7f;
+            airSpeed = 13;
             bulletPrefab.transform.localScale = new Vector3(1, 1, 0);
             GameObject spray = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
             spray.GetComponent<Rigidbody2D>().velocity = sprayDir;
         }
 
-        if (uiInventory.sprayBottleAmount == 2)
+        if (uiInventory.airAmount == 2)
         {
             SprayDelay = 0.5f;
             bulletPrefab.transform.localScale = new Vector3(1.3f, 1.3f, 0);
@@ -788,15 +905,17 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (uiInventory.sprayBottleAmount == 3)
+        if (uiInventory.airAmount == 3)
         {
+
+            airSpeed = 13;
             SprayDelay = 0.3f;
             bulletPrefab.transform.localScale = new Vector3(2, 2, 0);
             GameObject spray = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
             spray.GetComponent<Rigidbody2D>().velocity = sprayDir;
         }
 
-        if (uiInventory.sprayBottleAmount == 4)
+        if (uiInventory.airAmount == 4)
         {
             SprayDelay = 0.2f;
             bulletPrefab.transform.localScale = new Vector3(2.5f, 2.5f, 0);
@@ -823,7 +942,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        
+
 
         if (collision.gameObject.tag == "firstBoss")
         {
@@ -831,7 +950,7 @@ public class PlayerController : MonoBehaviour
 
             //Remove if we want player health
             Vector2 difference = transform.position - collision.transform.position;
-            rb.velocity  = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
+            rb.velocity = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
 
             playerHealth--;
             print(playerHealth);
@@ -871,7 +990,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "level2start")
         {
             inlevel2 = true;
-                inlevel3 = false ;
+            inlevel3 = false;
             print("123wefouiwjeaf");
         }
 
@@ -887,7 +1006,7 @@ public class PlayerController : MonoBehaviour
         {
             inlevel2 = false;
             inlevel3 = false;
-           finallevel = true;
+            finallevel = true;
             print("collision");
 
         }
@@ -901,7 +1020,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
             playerHealth--;
             rb.MovePosition(rb.velocity);
-           // print(playerHealth);
+            // print(playerHealth);
 
             Instantiate(particleScript, transform.position, Quaternion.identity);
             //enemyAI.PlayerHit();
@@ -909,9 +1028,15 @@ public class PlayerController : MonoBehaviour
             if (playerHealth < 1)
             {
                 respawn();
-            }
 
             }
+
+        }
+
+        if (playerHealth < 1)
+        {
+            enemy.ResetBossPosition();
+        }
     }
 
     public void respawn()

@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
         AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Flamethrower, amount = 1 });
         AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.SprayBottle, amount = 1 });
         AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Stick, amount = 1 });
+        AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Air, amount = 1 });
 
         Debug.Log(weaponList.Count);
 

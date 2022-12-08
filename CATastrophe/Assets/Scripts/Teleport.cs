@@ -29,13 +29,14 @@ public class Teleport : MonoBehaviour
     {
       //  cameraSwitch.GetComponent<CameraSwitch>();
        // print(level2Cutscene);
-       DontDestroyOnLoad(this);
+      
     }
 
    void OnTriggerEnter2D(Collider2D other)
     {
         if (this.gameObject.tag == "Level1Exit" && other.CompareTag("Player"))
         {
+            SceneManager.LoadScene(3, LoadSceneMode.Additive);
             destination = GameObject.FindGameObjectWithTag("level2start").GetComponent<Transform>();
 
            // cameraSwitch.SetCamera2();
@@ -51,7 +52,7 @@ public class Teleport : MonoBehaviour
 
                 // cameraSwitch.SetCamera2();
                // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                SceneManager.LoadScene(4, LoadSceneMode.Additive);
+              
             }
 
            
@@ -60,13 +61,14 @@ public class Teleport : MonoBehaviour
 
         if (this.gameObject.tag == "Level2Exit" && other.CompareTag("Player"))
         {
+          //  SceneManager.LoadScene(4, LoadSceneMode.Additive);
             destination = GameObject.FindGameObjectWithTag("Level3Start").GetComponent<Transform>();
             if (Vector2.Distance(transform.position, other.transform.position) > distance)
             {
                 other.transform.position = new Vector2(destination.position.x, destination.position.y);
                 inlevel2 = false;
                 inlevel3 = true;
-                SceneManager.LoadScene(5, LoadSceneMode.Additive);
+              
 
             }
 
@@ -74,6 +76,7 @@ public class Teleport : MonoBehaviour
 
         if (this.gameObject.tag == "Level3Exit" && other.CompareTag("Player"))
         {
+            SceneManager.LoadScene(4, LoadSceneMode.Additive);
             destination = GameObject.FindGameObjectWithTag("BossStart").GetComponent<Transform>();
             if (Vector2.Distance(transform.position, other.transform.position) > distance)
             {
@@ -81,9 +84,26 @@ public class Teleport : MonoBehaviour
                 inlevel2 = false;
                 inlevel3 = false;
                 finalLevel = true;
-                SceneManager.LoadScene(6, LoadSceneMode.Additive);
+               
             }
 
         }
+
+        if (this.gameObject.tag == "Final" && other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +3);
+            // destination = GameObject.FindGameObjectWithTag("BossStart").GetComponent<Transform>();
+            //  if (Vector2.Distance(transform.position, other.transform.position) > distance)
+            // {
+            //     other.transform.position = new Vector2(destination.position.x, destination.position.y);
+            //     inlevel2 = false;
+            //     inlevel3 = false;
+            //     finalLevel = true;
+
+        }
+
+
+
+        
     }
 }

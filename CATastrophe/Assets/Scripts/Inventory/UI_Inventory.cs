@@ -11,10 +11,11 @@ public class UI_Inventory : MonoBehaviour
     private Inventory inventory;
     private Transform weaponSlotContainer;
     private Transform weaponSlotTemplate;
-    public int knifeAmount;
-    public int sprayBottleAmount;
+    public int fireAmount;
+    public int waterAmount;
     public int supremeGunAmount;
-    public int minecraftBowAmount;
+    public int earthAmount;
+    public int airAmount;
     public int heartAmount;
     // public TextMeshProUGUI text;
 
@@ -28,12 +29,7 @@ public class UI_Inventory : MonoBehaviour
 
      void Update()
     {
-        DontDestroyOnLoad(weaponSlotContainer);
-        DontDestroyOnLoad(weaponSlotTemplate);
-        DontDestroyOnLoad(weaponSlotTemplate.gameObject);
-        DontDestroyOnLoad(this);
-        DontDestroyOnLoad(gameObject);
-       // DontDestroyOnLoad(inventory);
+     
     }
 
     public void SetInventory(Inventory inv)
@@ -84,13 +80,11 @@ public class UI_Inventory : MonoBehaviour
                uiText.SetText(" ");
             }
 
-         //   print(weapon.amount);
-          //  print(weapon.weaponType);
 
 
             if (weapon.weaponType == WeaponType.Flamethrower)
             {
-                knifeAmount = weapon.amount ;
+                fireAmount = weapon.amount ;
                 
             }
 
@@ -101,12 +95,18 @@ public class UI_Inventory : MonoBehaviour
             }
             if (weapon.weaponType == WeaponType.SprayBottle)
             {
-                sprayBottleAmount = weapon.amount;
+                waterAmount = weapon.amount;
 
             }
             if (weapon.weaponType == WeaponType.Stick)
             {
-                minecraftBowAmount = weapon.amount;
+                earthAmount = weapon.amount;
+
+            }
+
+            if (weapon.weaponType == WeaponType.Air)
+            {
+                airAmount = weapon.amount;
 
             }
 

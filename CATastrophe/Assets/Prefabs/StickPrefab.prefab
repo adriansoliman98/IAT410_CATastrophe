@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3977400651290416870, guid: 635321d13e9c186499163ca43076a07d, type: 3}
       propertyPath: bulletDamage
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 9140337903851025136, guid: 635321d13e9c186499163ca43076a07d, type: 3}
       propertyPath: m_RootOrder
@@ -118,7 +118,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 99999
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

@@ -13,6 +13,8 @@ public class BulletControl : MonoBehaviour
     public float bulletDamage;
     public float bulletHealth;
     [SerializeField] private UI_Inventory uiInventory;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class BulletControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
 
 
     }
@@ -41,7 +44,7 @@ public class BulletControl : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (gameObject.tag != "Flame")
+        if (gameObject.tag != "Flame" )
         {
             if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
             {
@@ -63,17 +66,47 @@ public class BulletControl : MonoBehaviour
                 furnitureComponent.TakeDamage(bulletDamage);
                 Destroy(gameObject);
             }
+
+            
         }
 
+        
+            if(collision.gameObject.tag == "room")
+            {
+                Destroy(gameObject);
+            }
+        if (gameObject.tag == "Catgun")
+        {
 
+            if (collision.gameObject.tag == "BossBullet")
+            {
+                // furnitureComponent.TakeDamage(bulletDamage);
+                Destroy(gameObject);
+            }
+        }
 
+        /*  if (gameObject.tag == "Stick")
+          {
+              if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+              {
+                  Destroy(gameObject);
+              }
+
+              if (collision.gameObject.TryGetComponent<BossBullet>(out BossBullet bossbulletComponent))
+              {
+
+                  Destroy(gameObject);
+              }
+
+          }
+        */
         //
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (gameObject.tag == "Flame")
+        if (gameObject.tag == "Flame" || gameObject.tag != "Air")
         {
             if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
@@ -83,6 +116,25 @@ public class BulletControl : MonoBehaviour
             }
 
         }
+
+       // if (gameObject.tag == "Stick")
+     //   {
+       //     if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+       //     {
+       //         Destroy(gameObject);
+       //     }
+
+
+      //  }
+
+        
+
+        if (collision.gameObject.tag == "room")
+        {
+            Destroy(gameObject);
+        }
+
+       
     }
 
     /*  public void OnTriggerEnter2D(Collision2D collision)

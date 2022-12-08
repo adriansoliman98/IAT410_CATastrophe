@@ -34,10 +34,15 @@ public class Enemy : MonoBehaviour
 
     Vector2 moveDirection;
 
+    Vector3 startPosition;
+
 
     private void Awake()
     {
-        
+        //Vector3 currentPosition = new Vector3(transform.position.x, transform.position.y, 0);
+        //this.originalPosition = this.transform.position;
+
+        startPosition = transform.position;
     }
 
     private void Start()
@@ -150,9 +155,15 @@ public class Enemy : MonoBehaviour
         }
 
 
+    }
 
-
-
+    public void ResetBossPosition()
+    {
+        //if (gameObject.tag == "thirdBoss")
+        // {
+        // transform.position = startPosition;
+        //  }
+        print("hello");
     }
 
 

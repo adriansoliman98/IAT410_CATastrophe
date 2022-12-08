@@ -52,15 +52,15 @@ public class WeaponSwitch : MonoBehaviour
 
       
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             WeaponCash = true;
             WeaponAir = false;
             WeaponEarth = false;
             WeaponFire = false;
             WeaponWater = false;
-            currentGun = 1;
-            SetWeapon(1);
+            currentGun = 5;
+            SetWeapon(5);
 
         }
 
@@ -82,7 +82,7 @@ public class WeaponSwitch : MonoBehaviour
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
 
             //   if (bowInventory == true)
@@ -92,9 +92,9 @@ public class WeaponSwitch : MonoBehaviour
                 WeaponEarth = true;
                 WeaponFire = false;
                 WeaponWater = false;
-                currentGun = 3;
+                currentGun = 1;
 
-                SetWeapon(3);
+                SetWeapon(1);
             }
 
 
@@ -116,7 +116,7 @@ public class WeaponSwitch : MonoBehaviour
 
 
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
 
             //   if (bowInventory == true)
@@ -126,9 +126,9 @@ public class WeaponSwitch : MonoBehaviour
                 WeaponEarth = false;
                 WeaponFire = false;
                 WeaponWater = true;
-                currentGun = 5;
+                currentGun = 3;
 
-                SetWeapon(5);
+                SetWeapon(3);
             }
 
 
@@ -154,7 +154,7 @@ public class WeaponSwitch : MonoBehaviour
     */
         switch (weaponID)
         {
-            case 1:
+            case 5:
                 playerController.SetBulletPreFab(cashgun);
 
                 break;
@@ -163,7 +163,7 @@ public class WeaponSwitch : MonoBehaviour
 
                 break;
 
-            case 3:
+            case 1:
                 playerController.SetBulletPreFab(earth);
 
                 break;
@@ -173,7 +173,7 @@ public class WeaponSwitch : MonoBehaviour
 
                 break;
 
-            case 5:
+            case 3:
                 playerController.SetBulletPreFab(water);
 
                 break;

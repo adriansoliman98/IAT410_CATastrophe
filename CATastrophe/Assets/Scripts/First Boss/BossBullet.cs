@@ -57,6 +57,8 @@ public class BossBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-     
+      
+
+
     }
 }
