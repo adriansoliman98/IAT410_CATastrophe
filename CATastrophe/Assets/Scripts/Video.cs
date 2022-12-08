@@ -43,11 +43,16 @@ public class Video : MonoBehaviour
             }
             if (video.tag == "4thLevelCutscene")
             {
-                SceneManager.UnloadSceneAsync(5);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -5);
             }
             if (video.tag == "2ndLevelCutscene")
             {
                 SceneManager.UnloadSceneAsync(3);
+            }
+
+            if (video.tag == "IntroCutscene")
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
             }
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

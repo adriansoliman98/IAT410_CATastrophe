@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     BulletControl bulletControl;
     WeaponSwitch weaponSwitch;
     EnemyAI enemyAI;
-    Enemy enemy;
+    public GameObject enemy;
     public Teleport teleport;
     public GameObject player;
     public GameObject player2;
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         bulletControl = player.GetComponent<BulletControl>();      
         weaponSwitch = player2.GetComponent<WeaponSwitch>();
-        enemy = player.GetComponent<Enemy>();
+        //enemy = player.GetComponent<Enemy>();
         teleport = player.GetComponent<Teleport>();
     }
 
@@ -369,7 +369,7 @@ public class PlayerController : MonoBehaviour
 
         if (uiInventory.fireAmount == 1)
         {
-            bulletPrefab.transform.localScale = new Vector3(0.5f, 0.5f, 0);
+            bulletPrefab.transform.localScale = new Vector3(1f, 2f, 0);
             if (Input.GetKey("right"))
             {
                 GameObject bulletMelee = Instantiate(bulletPrefab, flameBulletRight, transform.rotation) as GameObject;
@@ -588,13 +588,23 @@ public class PlayerController : MonoBehaviour
 
         bulletPrefab.transform.localScale = new Vector3(0.3f, 0.3f, 0);
         bulletControl = player.GetComponent<BulletControl>();
+        sideBullet = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + 90);
 
 
         if (uiInventory.earthAmount == 1)
         {
-            GameObject bulletMelee = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-            bulletMelee.GetComponent<Rigidbody2D>().velocity = knifeDir;
 
+            if (Input.GetKey("down") || Input.GetKey("up"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, transform.position, sideBullet) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = knifeDir;
+            }
+
+            else if (Input.GetKey("left") || Input.GetKey("right"))
+            {
+                GameObject bulletMelee = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+                bulletMelee.GetComponent<Rigidbody2D>().velocity = knifeDir;
+            }
         }
 
         if (uiInventory.earthAmount == 2)
@@ -791,7 +801,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (uiInventory.supremeGunAmount == 4)
+        if (uiInventory.supremeGunAmount > 3)
         {
 
             if (Input.GetKey("down") || Input.GetKey("up"))
@@ -834,7 +844,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (uiInventory.supremeGunAmount >4 )
+     /*   if (uiInventory.supremeGunAmount >4 )
         {
             GameObject top = Instantiate(bulletPrefab, bottomBullet, transform.rotation) as GameObject;
             //  bulletControl = player.GetComponent<BulletControl>();
@@ -853,6 +863,7 @@ public class PlayerController : MonoBehaviour
             bullet3.GetComponent<Rigidbody2D>().velocity = newBullet3;
 
         }
+     */
     }
 
 
@@ -876,8 +887,8 @@ public class PlayerController : MonoBehaviour
 
 
         sprayDir = new Vector3(
-       (x < 0) ? Mathf.Floor(x) * 1 * airSpeed + moveDirection.x * 17 : Mathf.Ceil(x) * airSpeed + moveDirection.x * 17,
-        (y < 0) ? Mathf.Floor(y) * 1 * airSpeed + moveDirection.y * 17 : Mathf.Ceil(y) * airSpeed + moveDirection.y * 17,
+       (x < 0) ? Mathf.Floor(x) * 1 * airSpeed + moveDirection.x * 13 : Mathf.Ceil(x) * airSpeed + moveDirection.x * 13,
+        (y < 0) ? Mathf.Floor(y) * 1 * airSpeed + moveDirection.y * 13 : Mathf.Ceil(y) * airSpeed + moveDirection.y * 13,
         0);
 
         sprayDir2 = new Vector3(
@@ -888,7 +899,7 @@ public class PlayerController : MonoBehaviour
         if (uiInventory.airAmount == 1)
         {
             SprayDelay = 0.7f;
-            airSpeed = 13;
+            airSpeed = 17;
             bulletPrefab.transform.localScale = new Vector3(1, 1, 0);
             GameObject spray = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
             spray.GetComponent<Rigidbody2D>().velocity = sprayDir;
@@ -897,6 +908,7 @@ public class PlayerController : MonoBehaviour
         if (uiInventory.airAmount == 2)
         {
             SprayDelay = 0.5f;
+            airSpeed = 20;
             bulletPrefab.transform.localScale = new Vector3(1.3f, 1.3f, 0);
             GameObject spray = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
             spray.GetComponent<Rigidbody2D>().velocity = sprayDir;
@@ -908,7 +920,7 @@ public class PlayerController : MonoBehaviour
         if (uiInventory.airAmount == 3)
         {
 
-            airSpeed = 13;
+            airSpeed = 21;
             SprayDelay = 0.3f;
             bulletPrefab.transform.localScale = new Vector3(2, 2, 0);
             GameObject spray = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
@@ -944,22 +956,25 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (collision.gameObject.tag == "firstBoss")
+        if (collision.gameObject.tag == "firstBoss" || collision.gameObject.tag == "secondBoss1"||
+            collision.gameObject.tag == "secondBoss2" || collision.gameObject.tag == "thirdBoss" )
         {
             // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             //Remove if we want player health
             Vector2 difference = transform.position - collision.transform.position;
             rb.velocity = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
-
             playerHealth--;
-            print(playerHealth);
+            rb.MovePosition(rb.velocity);
+
+           
 
             Instantiate(particleScript, transform.position, Quaternion.identity);
             //enemyAI.PlayerHit();
             if (playerHealth < 1)
             {
                 respawn();
+                enemy.transform.position = new Vector2(-1434.1f, 963f);
             }
 
 
@@ -972,15 +987,17 @@ public class PlayerController : MonoBehaviour
 
             //Remove if we want player health
             Vector2 difference = transform.position - collision.transform.position;
-            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
-
+            rb.velocity = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
             playerHealth--;
+            rb.MovePosition(rb.velocity);
+
             Instantiate(particleScript, transform.position, Quaternion.identity);
             //print(playerHealth);
             //enemyAI.PlayerHit();
             if (playerHealth < 1)
             {
                 respawn();
+                enemy.transform.position = new Vector2(-1434.1f, 963f);
             }
 
 
@@ -1035,7 +1052,7 @@ public class PlayerController : MonoBehaviour
 
         if (playerHealth < 1)
         {
-            enemy.ResetBossPosition();
+           // enemy.ResetBossPosition();
         }
     }
 

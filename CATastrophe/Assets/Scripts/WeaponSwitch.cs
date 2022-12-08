@@ -35,9 +35,9 @@ public class WeaponSwitch : MonoBehaviour
     void Start()
     {
 
-        WeaponCash = true;
+        WeaponCash = false;
         WeaponAir = false;
-        WeaponEarth = false;
+        WeaponEarth = true;
         WeaponFire = false;
         WeaponWater = false;
         currentGun = 1;

@@ -66,15 +66,15 @@ public class BulletControl : MonoBehaviour
                 furnitureComponent.TakeDamage(bulletDamage);
                 Destroy(gameObject);
             }
-
-            
-        }
-
-        
-            if(collision.gameObject.tag == "room")
+            if (collision.gameObject.tag == "room")
             {
                 Destroy(gameObject);
             }
+
+        }
+
+        
+        
         if (gameObject.tag == "Catgun")
         {
 

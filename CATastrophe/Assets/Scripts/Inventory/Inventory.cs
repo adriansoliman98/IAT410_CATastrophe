@@ -15,11 +15,12 @@ public class Inventory : MonoBehaviour
 
 
         //for testing -> can delete after
-        AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.SupremeGun, amount = 1 });
-        AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Flamethrower, amount = 1 });
+       AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Stick, amount = 1 });
+        AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Air, amount = 1 });       
         AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.SprayBottle, amount = 1 });
-        AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Stick, amount = 1 });
-        AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Air, amount = 1 });
+        AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Flamethrower, amount = 1 });
+        //AddWeapon(new WeaponItem { weaponType = WeaponItem.WeaponType.Stick, amount = 1 });
+     
 
         Debug.Log(weaponList.Count);
 

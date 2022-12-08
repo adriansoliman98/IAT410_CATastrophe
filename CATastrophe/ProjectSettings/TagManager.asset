@@ -35,6 +35,7 @@ TagManager:
   - FirePlate
   - EarthPlate
   - FinalExit
+  - GrandmaBoss
   layers:
   - Default
   - TransparentFX

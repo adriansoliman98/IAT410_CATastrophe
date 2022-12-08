@@ -89,7 +89,7 @@ public class Teleport : MonoBehaviour
 
         }
 
-        if (this.gameObject.tag == "Final" && other.CompareTag("Player"))
+        if (this.gameObject.tag == "FinalExit" && other.CompareTag("Player"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +3);
             // destination = GameObject.FindGameObjectWithTag("BossStart").GetComponent<Transform>();

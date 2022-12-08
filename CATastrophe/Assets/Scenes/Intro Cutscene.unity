@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 738916970}
   m_Layer: 0
   m_Name: Video Player
-  m_TagString: Untagged
+  m_TagString: IntroCutscene
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -577,7 +577,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738916967}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 0ca0b7ff7b36153458b486e158761a2a, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: e7fcf92d016894d45b103b8299f91fd1, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -631,7 +631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081503f4d6529d849b417b5fcd295bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 46
+  timer: 35
+  timeToStop: 0
 --- !u!1 &778400494
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +719,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 447389672}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

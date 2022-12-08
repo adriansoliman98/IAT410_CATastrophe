@@ -16,16 +16,22 @@ public class MainMenu : MonoBehaviour
       
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void PlayGame()
     {      
-        //   Scene currentScene = SceneManager.GetActiveScene();
-       
-        //  string sceneName = currentScene.name;
-        //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-       
+        
             SceneManager.UnloadSceneAsync(3);
      
        
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Skip3rdCutscene()

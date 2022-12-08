@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         //Vector3 currentPosition = new Vector3(transform.position.x, transform.position.y, 0);
         //this.originalPosition = this.transform.position;
 
-        startPosition = transform.position;
+        startPosition = new Vector3(-1434.1f, 963f, 0);
     }
 
     private void Start()
@@ -135,34 +135,44 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
             // GetComponent<ItemSpawner>().Spawn();
             Instantiate(particleScript, transform.position, Quaternion.identity);
-            if (dropItem == true) { 
+            if (dropItem == true)
+            {
 
-            GetComponent<WeaponWorldSpawner>().InstantiateLoot();
-           
-        }
+                GetComponent<WeaponWorldSpawner>().InstantiateLoot();
+
+            }
             //if (gameObject.tag == "firstBoss")
             //  {
 
-           
-            }
+
+        }
 
         if (this.gameObject.tag == "FirstBoss")
         {
             if (health <= 0)
             {
-             //   bossDead = true;
-             }
+                //   bossDead = true;
+            }
         }
 
+        if (this.gameObject.tag == "thirdBoss")
+        {
+            if (health <= 0)
+            {
+                   bossDead = true;
+            }
 
+        }
     }
 
     public void ResetBossPosition()
     {
-        //if (gameObject.tag == "thirdBoss")
-        // {
-        // transform.position = startPosition;
-        //  }
+        if (gameObject.tag == "thirdBoss")
+         {
+            // transform.position = startPosition;
+
+            rb.MovePosition(startPosition);
+          }
         print("hello");
     }
 
